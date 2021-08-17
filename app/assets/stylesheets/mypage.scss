@@ -8,8 +8,9 @@
 #profile ul{
   height: 150px;
   width: 250px;
-  border: 1px solid;
-  border-color: #bdbdbd;
+  border: 1px solid  #bdbdbd;
+  box-sizing: border-box;
+  padding: 5px;
   list-style: none;
   display: flex;
   flex-flow: column;

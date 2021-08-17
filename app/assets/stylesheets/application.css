@@ -14,15 +14,11 @@
  *= require_self
  */
 
- .notifications p{
-  display: inline-block;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0px;
-  z-index: 100;
-  margin: 10px;
+*{
+  border: 1px solid gray;
+  box-sizing: border-box;
 }
+
 body {
   line-height: normal;
   width: 100%;
@@ -35,10 +31,14 @@ body {
 }
 header{
   background-color: #9fc5e8ff;
-  height: 80px;
+  height: 85px;
   width: 100%;
   display: flex;
   flex-flow: row;
+}
+header>*{
+  align-self: center;
+  margin: 0px 20px;
 }
 main{
   width: 100%;
@@ -67,4 +67,13 @@ p{
 .title{
   margin: 0px 30px;
   padding: 0px;
+}
+.notifications p{
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0px;
+  z-index: 100;
+  margin: 10px;
 }
