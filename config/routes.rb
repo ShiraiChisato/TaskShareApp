@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :logins
+  devise_for :logins, controllers: {
+    session: 'logins/sessions',
+    registrations: 'logins/registrations'
+    }
   root 'mypage#show'
   get 'manage/show'
   get 'view/show'
