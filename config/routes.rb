@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :logins
   root 'mypage#show'
   get 'manage/show'
   get 'view/show'
