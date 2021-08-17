@@ -1,0 +1,23 @@
+// Place all the styles related to the mypage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+#profile{
+  display: flex;
+  justify-content: space-around;
+}
+#profile ul{
+  height: 150px;
+  width: 250px;
+  border: 1px solid;
+  border-color: #bdbdbd;
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+}
+#profile ul li{
+  padding: 0px;
+}
+#usericon{
+  width: 150px;
+  height: 150px;
+}
