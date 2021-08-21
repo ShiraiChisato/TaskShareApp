@@ -14,11 +14,17 @@
  *= require_self
  */
 
-*{
+ *,
+ *:before,
+ *:after {
   border: 1px solid gray;
   box-sizing: border-box;
+  -webkit-box-sizing: inherit;
+  }
+html{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 body {
   line-height: normal;
   width: 100%;
@@ -79,4 +85,31 @@ p{
   top: 0px;
   z-index: 100;
   margin: 10px;
+}
+.button_to>*{
+  background-color: #cfe2f3ff;
+  color: #212529;
+  height: 80%;
+  font-size: large;
+  font-weight: bold;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  border-radius: 8px;
+}
+.button_to>*:hover{
+  background-color: #cfe2f3ff;
+  margin-top: 3px;
+  border-bottom: 2px solid #00662d;
 }
