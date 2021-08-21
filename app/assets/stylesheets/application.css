@@ -67,7 +67,10 @@ p{
 .title{
   margin: 0px 30px;
   padding: 0px;
-}
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  }
 .notifications p{
   display: inline-block;
   position: absolute;
