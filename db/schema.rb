@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_19_081608) do
+ActiveRecord::Schema.define(version: 2021_08_22_035041) do
 
   create_table "associates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "userid"
@@ -20,10 +20,29 @@ ActiveRecord::Schema.define(version: 2021_08_19_081608) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "userid"
+    t.integer "projectid"
+    t.string "post1"
+    t.string "post2"
+    t.string "post3"
+    t.string "post4"
+    t.string "post5"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "projectname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "projecticon"
+    t.string "projectnote"
+    t.string "topic1"
+    t.string "topic2"
+    t.string "topic3"
+    t.string "topic4"
+    t.string "topic5"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -34,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_08_19_081608) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "icon"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

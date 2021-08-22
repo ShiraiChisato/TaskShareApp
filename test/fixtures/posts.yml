@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  userid: 1
+  projectid: 1
+  post1: MyString
+  post2: MyString
+  post3: MyString
+  post4: MyString
+  post5: MyString
+
+two:
+  userid: 1
+  projectid: 1
+  post1: MyString
+  post2: MyString
+  post3: MyString
+  post4: MyString
+  post5: MyString

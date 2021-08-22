@@ -1,6 +1,32 @@
 <header>
-  <h1>Manage#edit</h1>
-  <p>Find me in app/views/project/edit.html.erb</p>
+  <div class="title">
+    <h1>Manage#show</h1>
+    <p>Find me in app/views/project/edit.html.erb</p>
+      <%=  button_to "mypage", {controller: "mypage", action: "show"}, {method: :get} %>
+  </div>
 </header>
 <main>
+  <div class="setting">
+    <div id ="name">
+      <% form_with model: @project do |form| %>
+        <%= form.label :projectname %>
+        <%= form.text_field :projectname %>
+        <%= form.label :projecticon %>
+        <%= form.text_field :projecticon %>
+    </div>
+    <div id="note">
+        <%= form.label :projectnote %>
+        <%= form.text_field :projectnote %>
+    </div>
+  </div>
+  <div class="setting">
+    <div id="topic">
+      <p>what you share?(limit 5 topic)</p>
+      <% form.label :topic%>
+    </div>
+  </div>
+        <%= form.submit  %>
+      <% end %>
+
+  </div>
 </main>
