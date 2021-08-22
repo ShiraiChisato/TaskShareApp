@@ -1,14 +1,24 @@
 <header>
   <div class="title">
     <h1>Manage#show</h1>
-    <p>Find me in app/views/project/edit.html.erb</p>
+    <p>Find me in app/views/manage/show.html.erb</p>
       <%=  button_to "mypage", {controller: "mypage", action: "show"}, {method: :get} %>
   </div>
+  <nav>
+    <% if user_signed_in? %>
+    <strong><%= link_to current_user.name, mypage_show_path %></strong>
+    <%= link_to 'プロフィール変更', edit_user_registration_path %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <% else %>
+    <%= link_to 'サインアップ', new_user_registration_path %>
+    <%= link_to 'ログイン', new_user_session_path %>
+    <% end %>
+  </nav>
 </header>
 <main>
-  <div class="setting">
+  <%= form_with model: @project do |form| %>
+  <div class="title">
     <div id ="name">
-      <% form_with model: @project do |form| %>
         <%= form.label :projectname %>
         <%= form.text_field :projectname %>
         <%= form.label :projecticon %>
@@ -19,14 +29,24 @@
         <%= form.text_field :projectnote %>
     </div>
   </div>
-  <div class="setting">
+  <div class="title">
     <div id="topic">
       <p>what you share?(limit 5 topic)</p>
-      <% form.label :topic%>
+      <%= form.label :topic1 %>
+      <%= form.text_field :topic1 %>
+      <%= form.label :topic2 %>
+      <%= form.text_field :topic2 %>
+      <%= form.label :topic3 %>
+      <%= form.text_field :topic3 %>
+      <%= form.label :topic4 %>
+      <%= form.text_field :topic4 %>
+      <%= form.label :topic5 %>
+      <%= form.text_field :topic5 %>
+    </div>
+    <div id ="preview">
+
     </div>
   </div>
-        <%= form.submit  %>
-      <% end %>
-
-  </div>
+    <%= form.submit  %>
+  <% end %>
 </main>

@@ -1,28 +1,26 @@
 class ManageController < ApplicationController
   def show
+    @project = Project.new
   end
 
   def create
-    @project = Project.new(pro_params)
+    @project = Project.new(projects_params)
     #確認
-    if @user.save
+    if @project.save
       redirect_to @project
     else
       error_mes = ""
-      @user.errors.full_messages.each do |error|
+      @project.errors.full_messages.each do |error|
         error_mes += "!#{error}<br>"
       end
       flash[:alert] = error_mes.html_safe
-      render :new
+      render :show
     end
   end
 
 
   private
-    def pro_params
+    def projects_params
       params.require(:project).parmit(:projectname, :projecticon, :projectnote)
-    end
-    def ass_params
-      params.require(:associate).parmit(:UserID, :projectID, :Host)
-    end
+  end
 end

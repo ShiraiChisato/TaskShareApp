@@ -1,6 +1,6 @@
 class ViewController < ApplicationController
   def show
-    #@view = Associate.find(params[:projectid])
+    @view = project.find(params[:projectid])
   end
 
 end
