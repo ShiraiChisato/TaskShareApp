@@ -13,7 +13,7 @@
   </div>
   <div id = "profile">
     <div id = "usericon">
-      <%= icon_tag @user.icon.thumb.url %>
+      <img src="<%= @user.icon %>">
     </div>
     <ul>
       <li>name:<%= @user.name %></li>

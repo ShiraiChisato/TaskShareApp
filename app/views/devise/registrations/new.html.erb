@@ -8,14 +8,14 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :icon%><br />
+    <%= f.label :icon %><br />
     <% if @user.icon? %>
-        <%= icon_tag @user.icon.url %>
+        <%= file_tag @user.icon.url %>
     <% else %>
-        <%= icon_tag "/assets/default.jpg", :size => '100x100' %>
+        <%= file_tag "/assets/default.jpg", :size => '100x100' %>
     <% end %>
         <button type="button" class="btn btn-outline-secondary rounded-pill">
-          <%= f.icon_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+          <%= f.file_field :icon %>
         </button>
   　　<%= f.submit '更新する', class: 'btn btn-primary' %>
   <% end %>
