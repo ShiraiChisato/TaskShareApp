@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'mypage/show'
   get 'users/show'
 
-  resources :logins
+  resources :projects
+  resources :associates
+  resources :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

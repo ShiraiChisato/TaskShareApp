@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
   def show
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def edit
     @user = User.find(params[:id])
   end
+
   def update
     if current_user.update(user_params)
       redirect_to user_path(current_user)
@@ -9,6 +17,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+
   private
     #ストロングパラメーター
     def user_params

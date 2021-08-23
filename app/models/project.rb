@@ -1,3 +1,3 @@
 class Project < ApplicationRecord
-  mount_uploader :icon, ImageUploader
+  mount_uploader :projecticon, ImageUploader
 end
