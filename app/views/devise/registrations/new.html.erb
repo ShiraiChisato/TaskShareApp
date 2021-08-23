@@ -9,21 +9,19 @@
 
   <div class="field">
     <%= f.label :icon %><br />
-    <% if @user.icon? %>
-        <%= file_tag @user.icon.url %>
-    <% else %>
-        <%= file_tag "/assets/default.jpg", :size => '100x100' %>
-    <% end %>
-        <button type="button" class="btn btn-outline-secondary rounded-pill">
-          <%= f.file_field :icon %>
-        </button>
-  　　<%= f.submit '更新する', class: 'btn btn-primary' %>
-  <% end %>
+        <% if @user.icon? %>
+            <%= image_tag @user.icon.url %>
+        <% else %>
+            <%= image_tag "/assets/default.jpg", :size => '100x100' %>
+        <% end %>
+            <button type="button" class="btn btn-outline-secondary rounded-pill">
+              <%= f.file_field :icon %>
+            </button>
   </div>
 
     <div class="field">
       <%= f.label :name %><br />
-      <%= f.name_field :name, autocomplete: "name" %>
+      <%= f.text_field :name, autocomplete: "name" %>
     </div>
 
     <div class="field">
@@ -45,9 +43,8 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "Sign up" ,id: @user.id %>
     </div>
   <% end %>
-
   <%= render "devise/shared/links" %>
 </main>

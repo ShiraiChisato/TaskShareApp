@@ -87,14 +87,11 @@ p{
   z-index: 100;
   margin: 10px;
 }
-.button{
-  display: flex;
-  flex-direction: row;
-}
-.button_to{
+.button, .button_to{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .button_to>*{
   background-color: #cfe2f3ff;
