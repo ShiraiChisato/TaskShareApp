@@ -1,6 +1,6 @@
 class MypageController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = User.all
   end
 
   def update
