@@ -1,13 +1,22 @@
 <header>
+  <div class="title">
+    <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+      <!-- ユーザーがログインしていた時の処理 -->
+
+      <h1> Hello! <%= current_user.name %> </h1>
+      <div class = "button">
+        <%= button_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
+      </div>
+      <% else %>
+        <!-- ユーザーがログインしていなかった時の処理 -->
+        <h1> Welcome! </h1>
+      <div class="button">
+        <%= button_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
+        <%= button_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
+      </div>
+    <% end %>
+  </div>
 </header>
 <main>
-  <nav>
-    <strong><%= link_to current_user.name, mypage_show_path %></strong>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  </nav>
-  <% @users.each do |user| %>
-    <p><%= user.name %></p>
-    <p><%= user.email %></p>
-      <br>
-  <% end %>
+
 </main>

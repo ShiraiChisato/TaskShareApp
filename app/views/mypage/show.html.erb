@@ -1,10 +1,11 @@
 <header>
   <div class="title">
     <h1>Mypage#show</h1>
-  <nav>
-    <strong><%= link_to current_user.name, mypage_show_path %></strong>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  </nav>
+    <nav>
+      <strong><%= link_to current_user.name, mypage_show_path %></strong>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    </nav>
+  </div>
 </header>
 <main>
   <div class = "title">
