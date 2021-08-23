@@ -12,19 +12,19 @@
 <main>
   <%= form_with model: @project do |form| %>
   <div class="title">
-    <div id ="name">
+    <div class ="field">
         <%= form.label :projectname %>
         <%= form.text_field :projectname %>
         <%= form.label :projecticon %>
         <%= form.text_field :projecticon %>
     </div>
-    <div id="note">
+    <div class="field">
         <%= form.label :projectnote %>
         <%= form.text_field :projectnote %>
     </div>
   </div>
   <div class="title">
-    <div id="topic">
+    <div class="field">
       <p>what you share?(limit 5 topic)</p>
       <%= form.label :topic1 %>
       <%= form.text_field :topic1 %>
