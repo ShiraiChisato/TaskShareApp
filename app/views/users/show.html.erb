@@ -1,30 +1,9 @@
 <header>
-  <div class="title">
-  <h1>users#show</h1>
-      <% if user_signed_in? %>
-    <strong><%= link_to current_user.name, mypage_show_path %></strong>
-    <%= link_to 'プロフィール変更', edit_user_registration_path %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to 'サインアップ', new_user_registration_path %>
-    <%= link_to 'ログイン', new_user_session_path %>
-    <% end %>
-  </div>
 </header>
 <main>
-<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-  <!-- ユーザーがログインしていた時の処理 -->
-  <p> メールアドレス： <%= current_user_session_path, method: :delete %>
-  <!-- ログアウトをする -->
-<% else %>
-  <!-- ユーザーがログインしていなかった時の処理 -->
-  <p> 現在ログインしていません </p>
-  <%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する -->
-  <%= link_to "新規登録", new_user_registration_path, class: 'post' %> <!-- 新規登録画面に移行する -->
-<% end %>
-<% @students.each do |student| %>
-  <p><%= student.name %></p>
-  <p><%= student.email %></p>
-    <br>
-<% end %>
+  <% @users.each do |user| %>
+    <p><%= user.name %></p>
+    <p><%= user.email %></p>
+      <br>
+  <% end %>
 </main>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     session: 'users/sessions'
   }
 
-  root 'users#sign_up'
+  root 'users#show'
   get 'manage/show'
   get 'view/show'
   get 'task/show'
