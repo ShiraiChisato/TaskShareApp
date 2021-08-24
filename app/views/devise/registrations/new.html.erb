@@ -9,17 +9,15 @@
 
   <div class="field">
     <%= f.label :icon %><br />
-    <%= form_for(@user) do |f| %>
-      <% if @user.image? %>
-          <%= image_tag @user.image.url %>
+      <% if @user.icon? %>
+          <%= image_tag @user.icon.url %>
       <% else %>
           <%= image_tag "/assets/default.jpg", :size => '100x100' %>
       <% end %>
           <button type="button" class="btn btn-outline-secondary rounded-pill">
-            <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+            <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
           </button>
-    　　<%= f.submit '更新する', class: 'btn btn-primary' %>
-    <% end %>
+    　　<!--<%= f.submit '更新する', class: 'btn btn-primary' %>-->
   </div>
 
     <div class="field">
@@ -46,7 +44,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" ,id: @user.id %>
+      <%= f.submit "Sign up" %>
     </div>
   <% end %>
   <%= render "devise/shared/links" %>
