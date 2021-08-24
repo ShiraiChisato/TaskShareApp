@@ -1,0 +1,15 @@
+<%= form_for([:admin, :survey, @free_choice_matter]) do |f| %>
+  <div class="field">
+    <% = f.label :subject %>
+    <%= f.text_field :subject, class: 'form-control'  %>
+  <div class="field">
+    <div class="checkbox">
+      <% label %>
+      <%= f.check_box :other_selected  %>
+      <%= f.label :other_selected  %>
+  <%= f.fields_for :options do |option|  %>
+    <%= render "option_fields", f: option  %>
+  <div class="button_to ">
+    <%= link_to_add_association "選択肢追加", f, :options, class: 'btn btn-success'  %>
+  <div class="button_to">
+    <%= f.submit class: 'btn btn-info'  %>

@@ -40,5 +40,8 @@ yarn-debug.log*
 /.envrc
 
 #icon
-assets/images
+/images
 /public/uploads
+
+#test _form.html.erb
+/manage/_form.html.erb
