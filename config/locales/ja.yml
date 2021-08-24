@@ -27,6 +27,12 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザー
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "はすでに使用されています"
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
