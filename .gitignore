@@ -40,5 +40,5 @@ yarn-debug.log*
 /.envrc
 
 #icon
-/assets/fallback
+/assets/fallback/*
 /public/uploads
