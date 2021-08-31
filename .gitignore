@@ -42,6 +42,3 @@ yarn-debug.log*
 #icon
 /images
 /public/uploads
-
-#test _form.html.erb
-/manage/_form.html.erb
