@@ -8,7 +8,7 @@
       </div>
       <% else %>
         <!-- ユーザーがログインしていなかった時の処理 -->
-      <h1> Welcome! </h1>
+      <h1> Welcome to TaskShare! </h1>
       <div class="button">
         <%= button_to "ログイン", new_user_session_path, method: :get %> <!-- ログイン画面に移行する -->
         <%= button_to "新規登録", new_user_registration_path, method: :get %> <!-- 新規登録画面に移行する -->
@@ -17,5 +17,7 @@
   </div>
 </header>
 <main>
-
+  <div class="field">
+    <h2>Do you need any tool?</h2>
+  </div>
 </main>

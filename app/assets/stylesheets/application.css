@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
  *,
  *:before,
  *:after {
@@ -50,7 +49,7 @@ main{
   display: inline;
   flex: 1;
   margin: 0px;
-  padding: 0px;
+  padding: 15px;
 }
 footer{
   clear: both;
@@ -88,6 +87,7 @@ p{
   margin: 10px;
 }
 .button, .button_to{
+  padding-right: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
