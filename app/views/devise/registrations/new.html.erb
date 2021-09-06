@@ -8,14 +8,15 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-
       <%= f.label :icon %>
         <div class="field">
           <%= f.hidden_field :icon_cache %>
           <%= image_tag @user.icon.url, id: 'preview', width:'150px', height:'150px' %>
-          <button type="button_to">
-            <%= f.file_field :icon, onchange: 'previewImage()', class: 'form-control'  %>
-          </button>
+            <div class="button">
+              <form class = "button_to">
+                <%= f.file_field :icon, onchange: 'previewImage()', class: 'form-control'  %>
+              </form>
+            </div>
         </div>
     </div>
 

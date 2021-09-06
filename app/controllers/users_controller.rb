@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+
   end
 
   def new
@@ -18,9 +19,14 @@ class UsersController < ApplicationController
     end
   end
 
+  protected
+    def after_sign_up_path_for(resource)
+      '/mypage/show'
+  end
+
   private
     #ストロングパラメーター
     def user_params
       params.require(:user).permit(:icon, :name, :email, :encrypted_password )
-    end
+  end
 end
