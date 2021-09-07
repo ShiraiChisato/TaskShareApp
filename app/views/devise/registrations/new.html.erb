@@ -9,14 +9,9 @@
 
     <div class="field">
       <%= f.label :icon %>
-        <div class="field">
-          <%= f.hidden_field :icon_cache %>
-          <%= image_tag @user.icon.url, id: 'preview', width:'150px', height:'150px' %>
-            <div class="button">
-              <form class = "button_to">
-                <%= f.file_field :icon, onchange: 'previewImage()', class: 'form-control'  %>
-            </div>
-        </div>
+      <%= f.file_field :icon, onchange: 'previewImage()', class: 'form-control' %>
+      <%= f.hidden_field :icon_cache %>
+      <%= image_tag @user.icon.url, class: 'rounded-circle mt-3', id: 'preview', size: '150x150' %>
     </div>
 
     <div class="field">
