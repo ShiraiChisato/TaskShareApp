@@ -102,6 +102,7 @@ em{
 }
 .field,.item>input{
   width: 300px;
+  font-size: medium;
 }
 .field>.button{
   display: flex;
