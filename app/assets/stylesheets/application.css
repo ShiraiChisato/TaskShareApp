@@ -49,10 +49,7 @@ main{
   display: inline;
   flex: 1;
   margin: 0px;
-  padding: 15px;
-}
-main>*{
-  margin: 10px 15px;
+  padding: 25px 30px;
 }
 footer{
   clear: both;
@@ -73,10 +70,14 @@ h2{
   padding: 0px;
   margin: 0px;
 }
-p{
-  font-size:large;
-  font-weight: bold;
-  margin: 20px;
+link{
+  font-size: 10px;
+}
+a:-webkit-any-link {
+  font-size: 15px;
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
 }
 em{
   font-size: small;
@@ -93,12 +94,13 @@ em{
 .field{
   display: flex;
   flex-direction: column;
+  margin: 15px 0px;
 }
-.field>*{
+.field > *{
   padding: 3px;
   font-size: medium;
 }
-.field>input{
+.field,.item>input{
   width: 300px;
 }
 .field>.button{
