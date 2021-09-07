@@ -13,4 +13,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 //追加
-require('user/common')
+import 'user/common'
