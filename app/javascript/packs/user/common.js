@@ -1,4 +1,4 @@
-function previewImage() {
+document.addEventListener("DOMContentLoaded", function previewImage() {
     const reader  = new FileReader();
     const file = document.querySelector('input[type="file"]');
     const preview = document.querySelector("#preview")
@@ -12,4 +12,4 @@ function previewImage() {
     if (file) {
         reader.readAsDataURL(file);
     }
-}
+})
