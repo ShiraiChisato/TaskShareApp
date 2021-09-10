@@ -1,14 +1,15 @@
 function previewImage() {
-    const target = this.event.target;
-    const file = target.files[0];
     const reader  = new FileReader();
-    reader.onloadend = function () {
-        const preview = document.querySelector("#preview")
-        if(preview) {
+    const file = document.querySelector('input[type="file"]');
+    const preview = document.querySelector("#preview")
+    const eventLog = document.querySelector('.event-log-contents');
+    reader.onloadend = function (event) {
+        eventLog.textContent = eventLog.textContent + `${event.type}: ${event.loaded} bytes transferred\n`;
+        if(event.type === "load") {
             preview.src = reader.result;
         }
     }
     if (file) {
         reader.readAsDataURL(file);
     }
-    }
+}

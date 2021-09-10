@@ -8,10 +8,9 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :icon %>
-      <%= f.file_field :icon, onchange: 'previewImage()', class: 'form-control' %>
-      <%= f.hidden_field :icon_cache %>
-      <%= image_tag @user.icon.url, class: 'rounded-circle mt-3', id: 'preview', size: '150x150' %>
+    <%= f.label :icon %>
+    <%= f.file_field :icon, onchange: 'previewImage()' %>
+    <%= image_tag @user.icon.url, id: 'preview',size: '150x150' %>
     </div>
 
     <div class="field">
