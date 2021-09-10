@@ -3,14 +3,16 @@
     <h1>Sign up</h1>
   </div>
 </header>
+
 <main>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-    <%= f.label :icon %>
-    <%= f.file_field :icon, onchange: 'previewImage()' %>
-    <%= image_tag @user.icon.url, id: 'preview',size: '150x150' %>
+      <%= f.label :icon %>
+      <%= f.file_field :icon, type:"file" %>
+      <%= f.hidden_field :icon_cache %>
+      <%= image_tag @user.icon.url,  class: 'preview', size: '150x150' %>
     </div>
 
     <div class="field">

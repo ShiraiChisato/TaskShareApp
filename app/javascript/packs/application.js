@@ -11,4 +11,4 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-require("./user/common")
+require("./user/common.js")
