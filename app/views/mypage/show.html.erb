@@ -2,7 +2,6 @@
   <div class="title">
     <h1>Mypage#show</h1>
     <nav>
-      <strong><%= link_to current_user.name, mypage_show_path %></strong>
       <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
     </nav>
   </div>
@@ -13,7 +12,7 @@
   </div>
   <div id = "profile">
     <div id = "usericon">
-      <%= image_tag @user.icon.thumb.url %>
+      <%= image_tag @user.icon.url %>
     </div>
     <ul>
       <li>name:<%= @user.name %></li>
