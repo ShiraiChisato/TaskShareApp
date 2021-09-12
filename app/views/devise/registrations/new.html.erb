@@ -9,14 +9,6 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= javascript_pack_tag "user/common.js" %>
-      <%= f.label :icon %>
-      <%= f.file_field :icon, type:"file", autofocus: true %>
-      <%= f.hidden_field :icon_cache %>
-      <%= image_tag @user.icon.url,  class: 'preview', size: '150x150' %>
-    </div>
-
-    <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name, autocomplete: "name" %>
     </div>
