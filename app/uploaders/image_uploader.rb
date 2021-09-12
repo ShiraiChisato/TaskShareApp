@@ -20,7 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-    'icon.jpg'
+    "icon.jpg"
   end
 
   # Process files as they are uploaded:
