@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    if user_signed_in?
+      @user = User.find(params[:id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def new
@@ -64,7 +68,6 @@ class UsersController < ApplicationController
       "mypage/show"
     end
   private
-    #ストロングパラメーター
     def user_params
       params.require(:user).permit(:icon, :name, :email, :encrypted_password )
   end
