@@ -53,11 +53,16 @@ class UsersController < ApplicationController
       render :show
     end
   end
+
   protected
     def after_sign_up_path_for(resource)
-      '/mypage/show'
+      after_sign_in_path_for(resource)
   end
 
+  protected
+    def after_sign_in_path_for(resource)
+      "mypage/show"
+    end
   private
     #ストロングパラメーター
     def user_params
