@@ -2,9 +2,9 @@
   <div class="title">
     <h1>Manage#show</h1>
     <p>Find me in app/views/manage/show.html.erb</p>
-      <%=  button_to "mypage", {controller: "mypage", action: "show"}, {method: :get} %>
+      <%=  button_to "Home", {controller: "users", action: "show"}, {method: :get} %>
         <nav>
-    <strong><%= link_to current_user.name, mypage_show_path %></strong>
+    <strong><%= link_to current_user.name, users_show_path %></strong>
     <%=button_to 'ログアウト', destroy_user_session_path, method: :delete %>
   </nav>
   </div>
