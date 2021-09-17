@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   def show
     if user_signed_in?
-      @user = User.find(params[:id])
+      @user = current_user
     else
       redirect_to new_user_session_path
     end
   end
-end
