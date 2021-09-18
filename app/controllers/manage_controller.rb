@@ -3,6 +3,10 @@ class ManageController < ApplicationController
     @project = Project.new
   end
 
+  def new
+    
+  end
+
   def create
     @project = Project.new(projects_params)
     #確認
