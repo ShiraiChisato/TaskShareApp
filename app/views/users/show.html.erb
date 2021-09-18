@@ -12,6 +12,7 @@
   <p>Your Projects</p>
   <%=  button_to "new project",new_project_path , method: :get %>
 </div>
-<div id= "showproject">
-  <%= %>
+<div id= "item">
+  <% @project.each do |p| %>
+  <% end %>
 </div>
