@@ -1,9 +1,9 @@
 class CreateProjects < ActiveRecord::Migration[6.1]
   def change
     create_table :projects do |t|
-      t.string :projectname,               null: false, default: ""
-      t.string :projecticon
-      t.string :projectnote
+      t.string :name,               null: false, default: ""
+      t.string :icon
+      t.string :note
       t.string :topic1,               null: false, default: ""
       t.string :topic2
       t.string :topic3

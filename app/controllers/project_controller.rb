@@ -1,10 +1,10 @@
-class ManageController < ApplicationController
-  def show
+class ProjectController < ApplicationController
+  def new
     @project = Project.new
   end
 
-  def new
-    
+  def show
+    @project = Project.find(params[:id])
   end
 
   def create
@@ -25,6 +25,6 @@ class ManageController < ApplicationController
 
   private
     def projects_params
-      params.require(:project).parmit(:projectname, :projecticon, :projectnote)
+      params.require(:project).parmit(:name, :icon, :note)
   end
 end

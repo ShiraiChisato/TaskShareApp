@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   }
 
   root 'users#show'
-  get 'manage/show'
-  get 'view/show'
+  get 'project/show'
+  get 'project/show'
   get 'task/show'
 
   resources :projects
