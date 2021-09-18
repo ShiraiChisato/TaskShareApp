@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(projects_params)
     #確認
     if @project.save
+      @associate = Associate.new(user: @current_user.id, project: @project.id, host: true)
       redirect_to @project
     else
       error_mes = ""
@@ -19,7 +20,7 @@ class ProjectsController < ApplicationController
         error_mes += "!#{error}<br>"
       end
       flash[:alert] = error_mes.html_safe
-      render :show
+      redirect_to projects_new
     end
   end
 

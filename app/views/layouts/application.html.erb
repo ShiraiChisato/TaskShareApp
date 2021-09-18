@@ -17,7 +17,9 @@
         <!-- ユーザーがログインしていた時の処理 -->
         <h1> Hello! <%= current_user.name %> </h1>
         <div class = "button">
-          <%= button_to "Home", user_path, method: :get %>
+        <% unless current_page?(root_path) %>
+          <%= button_to "Home", current_user_path, method: :get %>
+        <% end %>
           <%= button_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
         </div>
         <% else %>
