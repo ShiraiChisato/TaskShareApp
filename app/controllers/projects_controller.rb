@@ -1,4 +1,4 @@
-class ProjectController < ApplicationController
+class ProjectsController < ApplicationController
   def new
     @project = Project.new
   end
@@ -25,6 +25,6 @@ class ProjectController < ApplicationController
 
   private
     def projects_params
-      params.require(:project).parmit(:name, :icon, :note)
+      params.require(:project).permit(:name, :note, :topic1, :topic2, :topic3, :topic4, :topic5)
   end
 end

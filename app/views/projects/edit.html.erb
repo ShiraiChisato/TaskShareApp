@@ -1,0 +1,52 @@
+<header>
+  <div class="title">
+    <h1>project#edit</h1>
+    <p>Find me in app/views/project/show.html.erb</p>
+    <%=  button_to "Home", current_user, {method: :get} %>
+    <%=button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  </div>
+</header>
+<main>
+  <%= form_with model: @project do |form| %>
+  <div class="title">
+    <div class ="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      <div class="field">
+        <%= javascript_pack_tag "user/common.js" %>
+        <%= f.label :icon %>
+        <%= f.file_field :icon, type:"file", autofocus: true %>
+        <%= f.hidden_field :icon_cache %>
+        <%= image_tag @user.icon.url,  class: 'preview', size: '150x150' %>
+        <label>
+        <%= form.check_box :remove_profile_image %>
+        画像を削除する
+        </label>
+      </div>
+    </div>
+    <div class="field">
+        <%= form.label :note %>
+        <%= form.text_field :note %>
+    </div>
+  </div>
+  <div class="title">
+    <div class="field">
+      <p>what you share?(limit 5 topic)</p>
+      <%= form.label :topic1 %>
+      <%= form.text_field :topic1 %>
+      <%= form.label :topic2 %>
+      <%= form.text_field :topic2 %>
+      <%= form.label :topic3 %>
+      <%= form.text_field :topic3 %>
+      <%= form.label :topic4 %>
+      <%= form.text_field :topic4 %>
+      <%= form.label :topic5 %>
+      <%= form.text_field :topic5 %>
+    </div>
+    <div id ="preview">
+
+    </div>
+  </div>
+    <%= form.submit  %>
+  <% end %>
+</main>

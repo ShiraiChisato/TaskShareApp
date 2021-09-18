@@ -1,4 +1,4 @@
 class Associate < ApplicationRecord
-  belongs_to :userid
-  belongs_to :projectid
+  belongs_to :user
+  belongs_to :project
 end

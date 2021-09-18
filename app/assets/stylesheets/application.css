@@ -20,6 +20,10 @@
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
   }
+img{
+  height: 150px;
+  width: 150px;
+}
 html{
   -webkit-box-sizing: border-box;
   box-sizing: border-box;

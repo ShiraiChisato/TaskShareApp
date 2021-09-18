@@ -2,14 +2,14 @@
   <div class="title">
     <h1>task#show</h1>
     <nav>
-      <strong><%= link_to current_user.name, user_path(current_user) %></strong>
+      <strong><%= link_to current_user.name, current_user %></strong>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
     </nav>
   </div>
 </header>
 <main>
   <div class="title">
-    <p>Project Name:<%= @project.projectname %></p>
+    <p>Project Name:<%= @project.name %></p>
   </div>
   <div class="field">
     <p>What did you do?</p>
