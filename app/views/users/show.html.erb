@@ -1,37 +1,17 @@
-<header>
-  <div class="title">
-    <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
-      <!-- ユーザーがログインしていた時の処理 -->
-      <h1> Hello! <%= current_user.name %> </h1>
-      <div class = "button">
-        <%= button_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
-      </div>
-      <% else %>
-        <!-- ユーザーがログインしていなかった時の処理 -->
-      <h1> Welcome to TaskShare! </h1>
-      <div class="button">
-        <%= button_to "ログイン", new_user_session_path, method: :get %> <!-- ログイン画面に移行する -->
-        <%= button_to "新規登録", new_user_registration_path, method: :get %> <!-- 新規登録画面に移行する -->
-      </div>
-    <% end %>
-  </div>
-</header>
-<main>
-  <div class = "title">
-    <p>Your Profile</p>
-  </div>
-  <div id = "profile">
-      <%= image_tag @user.icon.url %>
-    <ul>
-      <li>name:<%= @user.name %></li>
-      <li>e-mail:<%= @user.email %></li>
-    </ul>
-  </div>
-  <div class = "title">
-  <p>Your Projects</p>
-  <%=  button_to "new project",new_project_path , method: :get %>
-  </div>
-  <div id= "showproject">
-  <%=%>
-  </div>
-</main>
+<div class = "title">
+  <p>Your Profile</p>
+</div>
+<div id = "profile">
+    <%= image_tag @user.icon.url %>
+  <ul>
+    <li>name:<%= @user.name %></li>
+    <li>e-mail:<%= @user.email %></li>
+  </ul>
+</div>
+<div class = "title">
+<p>Your Projects</p>
+<%=  button_to "new project",new_project_path , method: :get %>
+</div>
+<div id= "showproject">
+<%=%>
+</div>

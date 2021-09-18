@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_22_035041) do
+ActiveRecord::Schema.define(version: 2021_09_18_031745) do
 
   create_table "associates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "userid"
-    t.integer "projectid"
+    t.bigint "user_id"
+    t.bigint "project_id"
     t.boolean "host"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_associates_on_project_id"
+    t.index ["user_id"], name: "index_associates_on_user_id"
   end
 
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "userid"
-    t.integer "projectid"
+    t.bigint "user_id"
+    t.bigint "project_id"
     t.string "post1"
     t.string "post2"
     t.string "post3"
@@ -30,6 +32,8 @@ ActiveRecord::Schema.define(version: 2021_08_22_035041) do
     t.string "post5"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_posts_on_project_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -59,4 +63,8 @@ ActiveRecord::Schema.define(version: 2021_08_22_035041) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "associates", "projects"
+  add_foreign_key "associates", "users"
+  add_foreign_key "posts", "projects"
+  add_foreign_key "posts", "users"
 end

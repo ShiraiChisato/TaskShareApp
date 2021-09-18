@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @member = @project.users
   end
 
   def create
@@ -22,6 +23,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+
+  end
+
+  def destroy
+
+  end
 
   private
     def projects_params

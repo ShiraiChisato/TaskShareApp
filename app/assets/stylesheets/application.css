@@ -173,3 +173,7 @@ em{
 .item>*{
   padding-right: 20px;
 }
+.side{
+  width: 200px;
+  height: 100%;
+}
