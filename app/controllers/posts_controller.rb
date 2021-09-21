@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post =  current_user.post.new(posts_params)
-    @project_name = @project.name
+    @project = @post.project
     if current_user.save
       redirect_to project_show
     else
