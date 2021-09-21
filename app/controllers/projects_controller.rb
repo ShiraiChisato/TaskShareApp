@@ -5,8 +5,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @members = @project.users
-    @host = @project.find_host
+    @host = @project.users.where(associates:)
+    @not_host = @project.users
   end
 
   def edit
