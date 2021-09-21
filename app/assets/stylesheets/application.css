@@ -66,16 +66,8 @@ footer{
   font-weight: bold;
   flex-flow: row-reverse;
 }
-h1{
+h1,h2,h3{
   font-weight: bold;
-  padding: 0px;
-  margin: 0px;
-}
-h2{
-  font-size: large;
-  font-weight: bold;
-  padding: 0px;
-  margin: 0px;
 }
 link{
   font-size: 10px;
@@ -105,7 +97,6 @@ em{
   margin: 15px 0px;
 }
 .field > *{
-  padding: 3px;
   font-size: medium;
 }
 .field,.item>input{
@@ -174,6 +165,9 @@ em{
   padding-right: 20px;
 }
 .side{
+  display: flex;
+  flex-direction: column;
   width: 200px;
   height: 100%;
+  float: right;
 }

@@ -5,8 +5,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @host = @project.users.where(associates:)
-    @not_host = @project.users
+    @host_member = @project.users.where(associates: {host: true})
+    @not_host_member = @project.users.where(associates: {host: false})
+    @posts = @project.posts
   end
 
   def edit
