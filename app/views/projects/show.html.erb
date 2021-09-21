@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class = "post">
-      <% @posts.find_each(:batch_size => 10) do |post| %>
+      <% @posts.each do |post| %>
         <%= post.user %>
         <div class = "title">
           <%= post.topic1 %>
