@@ -1,7 +1,7 @@
 <div class = "title">
-  <p>Your Profile</p>
+  <h1>Your Profile</h1>
 </div>
-<div id = "profile">
+<div class = "field">
     <%= image_tag @user.icon.url %>
   <ul>
     <li>name:<%= @user.name %></li>
@@ -9,11 +9,14 @@
   </ul>
 </div>
 <div class = "title">
-  <p>Your Projects</p>
+  <h2>Your Projects</h2>
   <%=  button_to "new project",new_project_path , method: :get %>
 </div>
-<div id= "item">
+<div class = "item">
   <% @projects.each do |project| %>
-    <%= link_to project.name, project_path(project.id) %>
+    <div class = "content">
+      <h3><%= link_to project.name, project_path(project.id) %></h3>
+      <%= image_tag project.icon.url %>
+    </div>
   <% end %>
 </div>

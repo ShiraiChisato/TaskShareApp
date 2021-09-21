@@ -1,6 +1,9 @@
 <div class="title">
   <h2>Project Name:<%= @project.name %></h2>
   <div class = "button">
+    <% if @host_member %>
+      <%= button_to "編集する", edit_project_path, method: :get %>
+    <% end %>
     <%= button_to "投稿する", new_post_path(project_id: @project.id), method: :get %>
   </div>
 </div>
@@ -8,12 +11,6 @@
   <div class = "field">
     <div class = "title">
       <h2>投稿</h2>
-      <div class = "container">
-        <!-- Previous link sticks to the left -->
-        <a>＜</a>
-        <!-- Next link sticks to the right -->
-        <a>＞</a>
-      </div>
     </div>
     <div class = "post">
       <% @posts.each do |post| %>

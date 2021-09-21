@@ -1,14 +1,13 @@
 <%= form_with model: @project do |form| %>
 <div class="title">
   <div class ="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
     <div class="field">
-      <%= javascript_pack_tag "user/common.js" %>
-      <%= f.label :icon %>
-      <%= f.file_field :icon, type:"file", autofocus: true %>
-      <%= f.hidden_field :icon_cache %>
-      <%= image_tag @user.icon.url,  class: 'preview', size: '150x150' %>
+      <%= form.label :icon %>
+      <%= form.file_field :icon, type:"file", autofocus: true %>
+      <%= form.hidden_field :icon_cache %>
+      <%= image_tag form.icon.url,  class: 'preview' %>
       <label>
       <%= form.check_box :remove_profile_image %>
       画像を削除する
@@ -40,3 +39,4 @@
 </div>
   <%= form.submit  %>
 <% end %>
+<%= javascript_pack_tag "user/common.js" %>
