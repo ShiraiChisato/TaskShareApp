@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @host_member = @project.users.where(associates: {host: true})
     @not_host_member = @project.users.where(associates: {host: false})
-    @posts = @project.posts.page(params[:page])
+    @posts = @project.posts.page(params[:page]).per(10)
   end
 
   def edit
