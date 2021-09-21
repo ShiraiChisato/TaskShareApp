@@ -1,0 +1,22 @@
+<%= form_with model: @post do |form| %>
+  <div class="title">
+    <h2><%= @project_name %>に投稿することを記入してください</h2>
+  </div>
+  <div class="field">
+    <p>what you want to share?</p>
+    <%= form.label :topic1 %>
+    <%= form.text_field :topic1 %>
+    <%= form.label :topic2 %>
+    <%= form.text_field :topic2 %>
+    <%= form.label :topic3 %>
+    <%= form.text_field :topic3 %>
+    <%= form.label :topic4 %>
+    <%= form.text_field :topic4 %>
+    <%= form.label :topic5 %>
+    <%= form.text_field :topic5 %>
+  </div>
+  <div id ="preview">
+
+  </div>
+  <%= form.submit %>
+  <% end %>

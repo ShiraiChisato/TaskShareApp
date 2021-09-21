@@ -1,5 +1,8 @@
 <div class="title">
   <h2>Project Name:<%= @project.name %></h2>
+  <div class = "button">
+    <%= button_to "投稿する", new_post_path(project.id), method: :get %>
+  </div>
 </div>
 <div class="item">
   <div class = "field">
@@ -12,7 +15,7 @@
         <a>＞</a>
       </div>
     </div>
-    <div class = "field">
+    <div class = "post">
       <% @posts.find_each(:batch_size => 10) do |post| %>
         <%= post.user %>
         <div class = "title">
@@ -26,13 +29,15 @@
     </div>
   </div>
   <div class = "side">
-    <h3>管理者</h3>
-    <% @host_member.each do |host| %>
-      <%= host.name %>
-    <% end %>
-    <h3>メンバー</h3>
-    <% @not_host_member.each do |member|%>
-      <%= member.name %>
-    <% end %>
+    <div class = "scroll">
+      <h3>管理者</h3>
+      <% @host_member.each do |host| %>
+        <%= host.name %>
+      <% end %>
+      <h3>メンバー</h3>
+      <% @not_host_member.each do |member|%>
+        <%= member.name %>
+      <% end %>
+    </div>
   </div>
 </div>

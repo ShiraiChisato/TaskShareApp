@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
 
   private
     def projects_params
-      params.require(:project).permit(:name, :note, :topic1, :topic2, :topic3, :topic4, :topic5)
+      params.require(:project).permit(:name, :icon, :note, :topic1, :topic2, :topic3, :topic4, :topic5)
     end
     def set_host
       Associate.where(user: current_user, project: @project).update(host: true)
