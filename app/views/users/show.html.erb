@@ -13,4 +13,7 @@
   <%=  button_to "new project",new_project_path , method: :get %>
 </div>
 <div id= "item">
+  <% @projects.each do |project| %>
+    <%= link_to project.name, project_path(project.id) %>
+  <% end %>
 </div>

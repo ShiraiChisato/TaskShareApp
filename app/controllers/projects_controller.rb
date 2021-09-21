@@ -5,14 +5,19 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @member = @project.users
+    @members = @project.users
+    @host = @project.find_host
+  end
+
+  def edit
+
   end
 
   def create
-    @project = Project.new(projects_params)
+    @project =  current_user.projects.new(projects_params)
     #確認
-    if @project.save
-      @associate = Associate.new(user: @current_user.id, project: @project.id, host: true)
+    if current_user.save
+      set_host
       redirect_to @project
     else
       error_mes = ""
@@ -35,5 +40,8 @@ class ProjectsController < ApplicationController
   private
     def projects_params
       params.require(:project).permit(:name, :note, :topic1, :topic2, :topic3, :topic4, :topic5)
-  end
+    end
+    def set_host
+      Associate.where(user: current_user, project: @project).update(host: true)
+    end
 end

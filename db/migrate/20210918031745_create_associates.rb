@@ -3,7 +3,7 @@ class CreateAssociates < ActiveRecord::Migration[6.1]
     create_table :associates do |t|
       t.references :user, foreign_key: true
       t.references :project, foreign_key: true
-      t.boolean :host
+      t.boolean :host, null: false, default: false
 
       t.timestamps
     end
