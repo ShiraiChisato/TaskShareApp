@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post =  current_user.post.new(posts_params)
-    @project = Project.find(params[:id])
+    @project = Project.find(params[:project_id])
     if current_user.save
       post_add_params
       redirect_to project_show
