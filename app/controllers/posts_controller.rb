@@ -13,8 +13,9 @@ class PostsController < ApplicationController
 
   def create
     @post =  current_user.post.new(posts_params)
-    @project = @post.project
+    @project = Project.find(params[:id])
     if current_user.save
+      post_add_params
       redirect_to project_show
     else
       error_mes = ""
@@ -37,5 +38,8 @@ class PostsController < ApplicationController
   private
     def posts_params
       params.require(:project).permit(:user, :project, :topic1, :topic2, :topic3, :topic4, :topic5)
+    end
+    def post_add_params
+      Post.where(user: current_user, post:@post ).update(project: @project)
     end
 end
