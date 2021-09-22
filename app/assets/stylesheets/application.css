@@ -27,6 +27,7 @@ img{
 html{
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 1em;
 }
 body {
   line-height: normal;
@@ -62,27 +63,32 @@ footer{
   height: 70px;
   display: flex;
   padding: 0px 20px;
-  font-size: medium;
   font-weight: bold;
   flex-flow: row-reverse;
 }
 h1,h2,h3{
   font-weight: bold;
 }
-link{
-  font-size: 10px;
+label{
+  padding: 5px;
 }
-a:-webkit-any-link {
-  font-size: 20px;
+link {
   color: -webkit-link;
   cursor: pointer;
   text-decoration: underline;
 }
 em{
-  font-size: small;
   color: #212529;
 }
-
+input[type="text"],textarea {
+  width:30em
+}
+textarea{
+  min-height: 50px;
+  min-width: 300px;
+  max-width: 550px;
+  max-height: 190px;
+}
 .title{
   margin: 0px;
   padding: 0px 20px;
@@ -98,7 +104,6 @@ em{
 }
 .field,.item>input{
   width: 300px;
-  font-size: medium;
 }
 .field>.button{
   display: flex;
@@ -122,13 +127,12 @@ em{
   flex-direction: row;
 }
 .button_to>* {
-  min-width: 100px;
+  min-width: 8em;
   height: 40px;
   color: #212529;
   margin: 0px 5px;
   padding: 5px 10px;
   font-weight: bold;
-  font-size: medium;
   cursor: pointer;
   transition: all 0.4s ease;
   position: relative;
@@ -150,7 +154,6 @@ em{
 .actions>*{
   margin-top: 5px;
   padding: 3px;
-  font-size: large;
   cursor: pointer;
 }
 .item{
@@ -182,4 +185,11 @@ em{
   justify-content: center;
   width: 15em;
   height: 20em;
+}
+.set{
+  display: flex;
+  flex-direction: row;
+}
+.set>*{
+  margin-right: 10px;
 }

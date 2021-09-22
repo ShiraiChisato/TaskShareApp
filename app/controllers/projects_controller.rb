@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-
+    @project = Project.find(params[:id])
   end
 
   def create
@@ -26,16 +26,33 @@ class ProjectsController < ApplicationController
         error_mes += "!#{error}<br>"
       end
       flash[:alert] = error_mes.html_safe
-      redirect_to projects_new
+      redirect_to 'new'
     end
   end
 
   def update
-
+    @project = Project.find(params[:id])
+    if @project.update(projects_params)
+      # update メソッドが正しく実行できたとき詳細ページに戻る
+      redirect_to @project
+      flash[:notice] = "正常にアップデートされました"
+    else
+      # updateできなかったときにエラーを表示
+      flash[:alert] = "エラー：#{@project.errors.full_messages}"
+      # renderで入力した内容はそのままで変種ページに戻る
+      render 'edit'
+    end
   end
 
   def destroy
-
+    @project = Project.find(params[:id])
+    if @project.delete
+      flash[:notice] = "正常に削除されました"
+      redirect_to users_path
+    else
+      flash[:alert] = "削除できませんでした"
+      render :show
+    end
   end
 
   private

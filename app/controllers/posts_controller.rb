@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @project = Project.find(params[:project_id])
   end
 
   def edit
@@ -12,18 +13,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post =  current_user.post.new(posts_params)
-    @project = Project.find(params[:project_id])
+    @post =  current_user.posts.new(posts_params)
     if current_user.save
-      post_add_params
-      redirect_to project_show
+      redirect_to project_path(@project)
     else
       error_mes = ""
       @post.errors.full_messages.each do |error|
         error_mes += "!#{error}<br>"
       end
       flash[:alert] = error_mes.html_safe
-      redirect_to post_new
+      redirect_to project_path(@project)
     end
   end
 
@@ -37,9 +36,6 @@ class PostsController < ApplicationController
 
   private
     def posts_params
-      params.require(:project).permit(:user, :project, :topic1, :topic2, :topic3, :topic4, :topic5)
-    end
-    def post_add_params
-      Post.where(user: current_user, post:@post ).update(project: @project)
+      params.require(:post).permit(:post1, :post2, :post3, :post4, :post5).merge(user: current_user, project: @project )
     end
 end
