@@ -22,7 +22,7 @@ class PostsController < ApplicationController
         error_mes += "!#{error}<br>"
       end
       flash[:alert] = error_mes.html_safe
-      redirect_to project_path(@project)
+      redirect_to new_post_path(project_id: @project)
     end
   end
 

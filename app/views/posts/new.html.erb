@@ -5,22 +5,22 @@
   <div class="field">
     <h3>what you want to share?</h3>
     <h3><%= @project.topic1 %></h3>
-    <%= form.text_field :topic1 %>
+    <%= form.text_field :post1 %>
     <% if @project.topic2.present? %>
       <h3><%= @project.topic2 %></h3>
-        <%= form.text_field :topic2 %>
+        <%= form.text_field :post2 %>
     <% end %>
     <% if @project.topic3.present? %>
       <h3> <%= @project.topic3 %></h3>
-      <%= form.text_field :topic3 %>
+      <%= form.text_field :post3 %>
     <% end %>
     <% if @project.topic4.present? %>
       <h3> <%= @project.topic4 %></h3>
-      <%= form.text_field :topic4 %>
+      <%= form.text_field :post4 %>
     <% end %>
     <% if @project.topic5.present? %>
       <h3><%= @project.topic5 %></h3>
-      <%= form.text_field :topic5 %>
+      <%= form.text_field :post5 %>
     <% end %>
   </div>
   <div id ="preview">
