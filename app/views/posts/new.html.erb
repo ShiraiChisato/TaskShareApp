@@ -23,8 +23,6 @@
       <%= form.text_field :post5 %>
     <% end %>
   </div>
-  <div id ="preview">
-
-  </div>
+  <%= form.hidden_field :project_id, value: @project.id %>
   <%= form.submit %>
   <% end %>

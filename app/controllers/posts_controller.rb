@@ -13,7 +13,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    @project = Project.find(params[:project_id])
     @post =  current_user.posts.new(posts_params)
+    @post.project = @project
     if current_user.save
       redirect_to project_path(@project)
     else
@@ -36,6 +38,6 @@ class PostsController < ApplicationController
 
   private
     def posts_params
-      params.require(:post).permit(:post1, :post2, :post3, :post4, :post5).merge(user: current_user, project: @project )
+      params.require(:post).permit(:post1, :post2, :post3, :post4, :post5)
     end
 end
