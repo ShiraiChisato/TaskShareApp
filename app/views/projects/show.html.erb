@@ -17,13 +17,13 @@
     </div>
     <div class = "post">
       <% @posts.each do |post| %>
-        <%= post.user %>
-        <div class = "title">
-          <%= post.topic1 %>
-          <%= post.topic2 %>
-          <%= post.topic3 %>
-          <%= post.topic4 %>
-          <%= post.topic5 %>
+        <%= post.user.name %>
+        <div class = "set">
+          <%= post.post1 %>
+          <%= post.post2 %>
+          <%= post.post3 %>
+          <%= post.post4 %>
+          <%= post.post5 %>
         </div>
       <% end %>
     </div>
