@@ -80,14 +80,17 @@ link {
 em{
   color: #212529;
 }
-input[type="text"],textarea {
-  width:30em
+input{
+  max-width: 25em;
 }
 textarea{
   min-height: 50px;
   min-width: 300px;
   max-width: 550px;
   max-height: 190px;
+}
+i,em{
+  white-space: nowrap;
 }
 .title{
   margin: 0px;
@@ -101,9 +104,6 @@ textarea{
   display: flex;
   flex-direction: column;
   margin: 15px 0px;
-}
-.field,.item>input{
-  width: 300px;
 }
 .field>.button{
   display: flex;
