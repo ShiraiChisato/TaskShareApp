@@ -4,7 +4,7 @@
 <hr>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-
+<div class = "set">
     <div class = "side">
       <%= f.label :icon %>
       <%= f.file_field :icon, type:"file", autofocus: true, onchange: "previewImage()" %>
@@ -18,40 +18,29 @@
     <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name, autocomplete: "name" %>
-    </div>
-    <div class="field">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-
-    <div class="field">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
       <%= f.password_field :password, autocomplete: "new-password" %>
       <% if @minimum_password_length %>
-
         <em><%= @minimum_password_length %> characters minimum</em>
       <% end %>
-    </div>
-
-    <div class="field">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
       <%= f.label :current_password %> <i>(必須)</i>
       <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <div class = "field">
+        <div class = "button">
+          <%= f.submit "更新" %>
+        </div>
+      </div>
     </div>
-
-    <div class="actions">
-      <%= f.submit "Update" %>
-    </div>
-  <% end %>
-
-  <div class = "field">
+  </div>
+<% end %>
+  <div class = "side">
     <div class = "button">
       <%= button_to "戻る", :back, method: :get %>
       <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete %>

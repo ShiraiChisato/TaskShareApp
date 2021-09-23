@@ -7,22 +7,20 @@
     <div class ="field">
       <%= form.label :name %>
       <%= form.text_field :name %>
-    </div>
-  </div>
-  <div class = "title">
-    <div class="field">
-      <%= form.label :icon %>
-      <%= form.file_field :icon, type:"file", autofocus: true, onchange:"previewImage()" %>
-      <%= form.hidden_field :icon_cache %>
-      <%= image_tag @project.icon.url,  id: 'preview' %>
-      <label>
-      <%= form.check_box :remove_icon %>
-      画像を削除する
-      </label>
-    </div>
-    <div class="field">
       <%= form.label :note %>
       <%= form.text_area :note %>
+    </div>
+    <div class = "title">
+      <div class="side">
+        <%= form.label :icon %>
+        <%= form.file_field :icon, type:"file", autofocus: true, onchange:"previewImage()" %>
+        <%= form.hidden_field :icon_cache %>
+        <%= image_tag @project.icon.url,  id: 'preview' %>
+        <label>
+        <%= form.check_box :remove_icon %>
+        画像を削除する
+        </label>
+      </div>
     </div>
   </div>
   <div class="field">
@@ -31,20 +29,12 @@
       <div class = "field">
         <%= form.label :topic1 %>
         <%= form.text_field :topic1 %>
-      </div>
-      <div class = "field">
         <%= form.label :topic2 %>
         <%= form.text_field :topic2 %>
-      </div>
-      <div class = "field">
         <%= form.label :topic3 %>
         <%= form.text_field :topic3 %>
-      </div>
-      <div class = "field">
         <%= form.label :topic4 %>
         <%= form.text_field :topic4 %>
-      </div>
-      <div class = "field">
         <%= form.label :topic5 %>
         <%= form.text_field :topic5 %>
       </div>
@@ -54,7 +44,7 @@
     <%= form.submit %>
   </div>
 <% end %>
-<div class = "field">
+<div class = "side">
   <div class = "button">
     <%= button_to "戻る", :back, method: :get %>
     <%= button_to "プロジェクトを削除", project_path(@project), data: { confirm: "本当によろしいですか?" }, method: :delete %>

@@ -8,8 +8,6 @@
   <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
     <div class="item">
       <%= f.label :password %>
       <%= link_to "パスワードを忘れた場合", new_user_password_path %>
@@ -25,7 +23,7 @@
         <%= f.label :remember_me %>
       <% end %>
     </div>
-    <div class="title">
+    <div class ="side">
       <div class="button">
         <%= f.submit "Log in", class: "button_to" %>
       </div>
