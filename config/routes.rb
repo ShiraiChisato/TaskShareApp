@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'projects/edit'
   get 'task/show'
 
-  resources :projects
+  resources :projects do
+    get :search, on: :collection
+  end
   resources :associates
   resources :posts
   resources :users, only: [:show]

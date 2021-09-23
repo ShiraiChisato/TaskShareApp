@@ -7,11 +7,11 @@
 
     <div class = "side">
       <%= f.label :icon %>
-      <%= f.file_field :icon, type:"file", onchange: "common()" %>
+      <%= f.file_field :icon, type:"file", autofocus: true, onchange: "previewImage()" %>
       <%= f.hidden_field :icon_cache %>
-      <%= image_tag @user.icon.url,  id: 'preview', size: '150x150' %>
+      <%= image_tag @user.icon.url,  id: 'preview' %>
       <label>
-      <%= f.check_box :remove_previously_stored_icon %>
+      <%= f.check_box :remove_icon %>
       画像を削除する
     </label>
     </div>

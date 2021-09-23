@@ -1,3 +1,7 @@
+<div class = "title">
+  <h1>プロジェクト編集</h1>
+</div>
+<hr>
 <%= form_with model: @project do |form| %>
   <div class="title">
     <div class ="field">
@@ -12,7 +16,7 @@
       <%= form.hidden_field :icon_cache %>
       <%= image_tag @project.icon.url,  id: 'preview' %>
       <label>
-      <%= form.check_box :remove_profile_image %>
+      <%= form.check_box :remove_icon %>
       画像を削除する
       </label>
     </div>

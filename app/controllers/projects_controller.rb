@@ -1,4 +1,12 @@
 class ProjectsController < ApplicationController
+  def search
+    if params[:post].present?
+      @users = User.where('プロジェクトのIDを教えてください', "%#{params[:post]}%")
+    else
+      @users = User.none
+    end
+  end
+
   def new
     @project = Project.new
   end
@@ -57,7 +65,7 @@ class ProjectsController < ApplicationController
 
   private
     def projects_params
-      params.require(:project).permit(:name, :icon, :note, :topic1, :topic2, :topic3, :topic4, :topic5)
+      params.require(:project).permit(:name, :icon, :note, :topic1, :topic2, :topic3, :topic4, :topic5, :remove_icon)
     end
     def set_host
       Associate.where(user: current_user, project: @project).update(host: true)
