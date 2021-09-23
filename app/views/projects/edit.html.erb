@@ -4,14 +4,11 @@
       <%= form.label :name %>
       <%= form.text_field :name %>
     </div>
-    <div class = "button">
-      <%= button_to "戻る", project_path(@project.id), method: :get %>
-    </div>
   </div>
   <div class = "title">
     <div class="field">
       <%= form.label :icon %>
-      <%= form.file_field :icon, type:"file", autofocus: true %>
+      <%= form.file_field :icon, type:"file", autofocus: true, onchange:"previewImage()" %>
       <%= form.hidden_field :icon_cache %>
       <%= image_tag @project.icon.url,  id: 'preview' %>
       <label>
@@ -24,24 +21,39 @@
       <%= form.text_area :note %>
     </div>
   </div>
-  <div class="title">
-    <div class="field">
-      <h3>what you share?(limit 5 topic)</h3>
-      <%= form.label :topic1 %>
-      <%= form.text_field :topic1 %>
-      <%= form.label :topic2 %>
-      <%= form.text_field :topic2 %>
-      <%= form.label :topic3 %>
-      <%= form.text_field :topic3 %>
-      <%= form.label :topic4 %>
-      <%= form.text_field :topic4 %>
-      <%= form.label :topic5 %>
-      <%= form.text_field :topic5 %>
+  <div class="field">
+    <h3>what you share?(limit 5 topic)</h3>
+    <div class="item">
+      <div class = "field">
+        <%= form.label :topic1 %>
+        <%= form.text_field :topic1 %>
+      </div>
+      <div class = "field">
+        <%= form.label :topic2 %>
+        <%= form.text_field :topic2 %>
+      </div>
+      <div class = "field">
+        <%= form.label :topic3 %>
+        <%= form.text_field :topic3 %>
+      </div>
+      <div class = "field">
+        <%= form.label :topic4 %>
+        <%= form.text_field :topic4 %>
+      </div>
+      <div class = "field">
+        <%= form.label :topic5 %>
+        <%= form.text_field :topic5 %>
+      </div>
     </div>
-
   </div>
   <div class = "title">
     <%= form.submit %>
-    <% end %>
+  </div>
+<% end %>
+<div class = "field">
+  <div class = "button">
+    <%= button_to "戻る", :back, method: :get %>
+    <%= button_to "プロジェクトを削除", project_path(@project), data: { confirm: "本当によろしいですか?" }, method: :delete %>
+  </div>
 </div>
 <%= javascript_pack_tag "user/common.js" %>

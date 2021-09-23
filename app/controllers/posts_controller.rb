@@ -13,18 +13,16 @@ class PostsController < ApplicationController
   end
 
   def create
-    @project = Project.find(params[:project_id])
     @post =  current_user.posts.new(posts_params)
-    @post.project = @project
     if current_user.save
-      redirect_to project_path(@project)
+      redirect_to project_path(@post.project)
     else
       error_mes = ""
       @post.errors.full_messages.each do |error|
         error_mes += "!#{error}<br>"
       end
       flash[:alert] = error_mes.html_safe
-      redirect_to new_post_path(project_id: @project)
+      redirect_to new_post_path(project_id: @post.project)
     end
   end
 

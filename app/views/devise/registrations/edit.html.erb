@@ -1,28 +1,28 @@
+<div class = "title">
+  <h1>プロフィール編集</h1>
+</div>
+<hr>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= javascript_pack_tag "user/common.js" %>
+    <div class = "side">
       <%= f.label :icon %>
-      <%= f.file_field :icon, type:"file", autofocus: true %>
+      <%= f.file_field :icon, type:"file", onchange: "common()" %>
       <%= f.hidden_field :icon_cache %>
       <%= image_tag @user.icon.url,  id: 'preview', size: '150x150' %>
       <label>
-      <%= form.check_box :remove_profile_image %>
+      <%= f.check_box :remove_previously_stored_icon %>
       画像を削除する
     </label>
     </div>
-
     <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name, autocomplete: "name" %>
     </div>
-
     <div class="field">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
-
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+      <%= f.label :current_password %> <i>(必須)</i>
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
 
@@ -51,8 +51,10 @@
     </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-  <%= link_to "Back", :back %>
+  <div class = "field">
+    <div class = "button">
+      <%= button_to "戻る", :back, method: :get %>
+      <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete %>
+    </div>
+  </div>
+<%= javascript_pack_tag "user/common.js" %>
