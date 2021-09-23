@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get 'task/show'
 
   resources :projects do
-    get :search, on: :collection
+    member do
+      post :join
+    end
   end
   resources :associates
   resources :posts

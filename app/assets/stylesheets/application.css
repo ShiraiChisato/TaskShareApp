@@ -70,7 +70,7 @@ h1,h2,h3{
   font-weight: bold;
 }
 label{
-  padding: 5px;
+  margin: 5px;
 }
 link {
   color: -webkit-link;
@@ -92,6 +92,31 @@ textarea{
 i,em{
   white-space: nowrap;
 }
+table, th, td {
+  line-height: 1.5;
+}
+tr{
+  border: 1px solid #3f3f3f;
+}
+th{
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  background: #3f3f3f;
+  color: #ffffff;
+}
+td{
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+}
+thead >*{
+  font-weight: bold;
+}
+hr{
+  width: 100%;
+}
 .title{
   margin: 0px;
   padding: 0px 20px;
@@ -105,12 +130,7 @@ i,em{
   flex-direction: column;
   margin: 15px 0px;
 }
-.field>.button{
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  flex-direction: row;
-}
+
 .notifications p{
   display: inline-block;
   position: absolute;
@@ -184,7 +204,7 @@ i,em{
   align-items: center;
   justify-content: center;
   width: 15em;
-  height: 20em;
+  height: 17em;
 }
 .set{
   display: flex;

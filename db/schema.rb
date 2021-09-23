@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_09_18_031745) do
   create_table "associates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "project_id"
-    t.boolean "host"
+    t.boolean "host", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_associates_on_project_id"

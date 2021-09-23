@@ -1,11 +1,4 @@
 class ProjectsController < ApplicationController
-  def search
-    if params[:post].present?
-      @users = User.where('プロジェクトのIDを教えてください', "%#{params[:post]}%")
-    else
-      @users = User.none
-    end
-  end
 
   def new
     @project = Project.new
@@ -63,6 +56,22 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def index
+    @q = Project.ransack(params[:q])
+    @projects = @q.result(distinct: true)
+  end
+
+  def join
+    @project = Project.find_by(params[:id])
+    if @project.users.exists?(current_user.id)
+      flash[:notice] = "既に加入しています"
+      redirect_to @project
+    else
+      @project.users << current_user
+      redirect_to @project
+    end
+  end
+
   private
     def projects_params
       params.require(:project).permit(:name, :icon, :note, :topic1, :topic2, :topic3, :topic4, :topic5, :remove_icon)
@@ -70,4 +79,4 @@ class ProjectsController < ApplicationController
     def set_host
       Associate.where(user: current_user, project: @project).update(host: true)
     end
-end
+  end

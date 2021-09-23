@@ -64,3 +64,6 @@ gem 'mini_magick'
 
 #page nation
 gem 'kaminari'
+
+#search
+gem 'ransack'

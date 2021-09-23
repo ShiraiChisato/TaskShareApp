@@ -1,25 +1,32 @@
-<div class = "title">
-  <h1>Your Profile</h1>
-  <div class = "button">
-    <%= button_to "プロフィール編集", edit_user_registration_path(current_user), method: :get %>
-  </div>
-</div>
-<div class = "field">
-    <%= image_tag @user.icon.url %>
-  <ul>
-    <li>name:<%= @user.name %></li>
-    <li>e-mail:<%= @user.email %></li>
-  </ul>
-</div>
-<div class = "title">
-  <h2>Your Projects</h2>
-  <%=  button_to "new project",new_project_path , method: :get %>
-</div>
-<div class = "item">
-  <% @projects.each do |project| %>
-    <div class = "content">
-      <h3><%= link_to project.name, project_path(project.id) %></h3>
-      <%= image_tag project.icon.url %>
+<div class ="field">
+  <div class = "title">
+    <h2>Your Profile</h2>
+    <div class = "button">
+      <%= button_to "プロフィール編集", edit_user_registration_path(current_user), method: :get %>
     </div>
-  <% end %>
+  </div>
+  <div class = "title">
+    <%= image_tag @user.icon.url %>
+    <div class ="field">
+      <ul>
+        <li>name:<%= @user.name %></li>
+        <li>e-mail:<%= @user.email %></li>
+      </ul>
+    </div>
+  </div>
+  <div class = "title">
+    <h2>Your Projects</h2>
+    <div class = "button">
+      <%= button_to "プロジェクトに参加", projects_path, method: :get %>
+      <%= button_to "プロジェクトを作成", new_project_path , method: :get %>
+    </div>
+  </div>
+  <div class = "item">
+    <% @projects.each do |project| %>
+      <div class = "content">
+        <h3><%= link_to project.name, project_path(project.id) %></h3>
+        <%= image_tag project.icon.url %>
+      </div>
+    <% end %>
+  </div>
 </div>

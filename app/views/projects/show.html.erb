@@ -12,21 +12,43 @@
 </div>
 <div class="item">
   <div class = "field">
-    <div class = "title">
+    <div class = "field">
       <h2>投稿</h2>
     </div>
-    <div class = "post">
-      <% @posts.each do |post| %>
-        <%= post.user.name %>
-        <div class = "set">
-          <%= post.post1 %>
-          <%= post.post2 %>
-          <%= post.post3 %>
-          <%= post.post4 %>
-          <%= post.post5 %>
-        </div>
+    <table>
+      <th>name</th>
+      <th><%= @project.topic1 %></th>
+        <% if @project.topic2.present? %>
+      <th><%= @project.topic2 %></th>
       <% end %>
-    </div>
+      <% if @project.topic3.present? %>
+        <th><%= @project.topic3 %></th>
+      <% end %>
+      <% if @project.topic4.present? %>
+        <th><%= @project.topic4 %></th>
+      <% end %>
+      <% if @project.topic5.present? %>
+        <th><%= @project.topic5 %></th>
+      <% end %>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.user.name %></td>
+          <td><%= post.post1 %></td>
+        <% if @project.topic2.present? %>
+            <td><%= post.post2 %></td>
+        <% end %>
+        <% if @project.topic3.present? %>
+            <td><%= post.post3 %></td>
+        <% end %>
+        <% if @project.topic4.present? %>
+            <td><%= post.post4 %></td>
+        <% end %>
+        <% if @project.topic5.present? %>
+            <td><%= post.post5 %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
   </div>
   <div class = "side">
     <div class = "scroll">
