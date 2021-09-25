@@ -1,5 +1,9 @@
 <div class = "title">
   <h1>プロフィール編集</h1>
+    <div class = "button">
+      <%= button_to "戻る", :back, method: :get %>
+      <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete %>
+    </div>
 </div>
 <hr>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -40,10 +44,4 @@
     </div>
   </div>
 <% end %>
-  <div class = "side">
-    <div class = "button">
-      <%= button_to "戻る", :back, method: :get %>
-      <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete %>
-    </div>
-  </div>
 <%= javascript_pack_tag "user/common.js" %>

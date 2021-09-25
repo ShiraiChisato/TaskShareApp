@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     member do
       post :join
     end
+    resources :members
   end
   resources :associates
   resources :posts

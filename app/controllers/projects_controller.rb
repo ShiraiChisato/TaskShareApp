@@ -62,8 +62,10 @@ class ProjectsController < ApplicationController
   end
 
   def join
-    @project = Project.find_by(params[:id])
-    if @project.users.exists?(current_user.id)
+    @project = Project.find(params[:id])
+    puts "----------------------------------"
+    puts params[:id]
+    if @project.users.pluck(:id).include?(current_user.id)
       flash[:notice] = "既に加入しています"
       redirect_to @project
     else

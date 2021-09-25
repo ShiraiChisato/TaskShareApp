@@ -6,6 +6,8 @@
   <div class = "button">
     <% if @host_member %>
       <%= button_to "編集する", edit_project_path, method: :get %>
+    <% else %>
+      <%= button_to "脱退する", project_members(@project, current_user), method: :destroy %>
     <% end %>
     <%= button_to "投稿する", new_post_path, { method: :get, params: { project_id: @project }} %>
   </div>
@@ -16,20 +18,22 @@
       <h2>投稿</h2>
     </div>
     <table>
-      <th>name</th>
-      <th><%= @project.topic1 %></th>
-        <% if @project.topic2.present? %>
-      <th><%= @project.topic2 %></th>
-      <% end %>
-      <% if @project.topic3.present? %>
-        <th><%= @project.topic3 %></th>
-      <% end %>
-      <% if @project.topic4.present? %>
-        <th><%= @project.topic4 %></th>
-      <% end %>
-      <% if @project.topic5.present? %>
-        <th><%= @project.topic5 %></th>
-      <% end %>
+      <tr>
+        <th>name</th>
+        <th><%= @project.topic1 %></th>
+          <% if @project.topic2.present? %>
+        <th><%= @project.topic2 %></th>
+        <% end %>
+        <% if @project.topic3.present? %>
+          <th><%= @project.topic3 %></th>
+        <% end %>
+        <% if @project.topic4.present? %>
+          <th><%= @project.topic4 %></th>
+        <% end %>
+        <% if @project.topic5.present? %>
+          <th><%= @project.topic5 %></th>
+        <% end %>
+      </tr>
       <% @posts.each do |post| %>
         <tr>
           <td><%= post.user.name %></td>
