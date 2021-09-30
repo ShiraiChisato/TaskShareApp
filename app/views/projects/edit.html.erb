@@ -1,8 +1,8 @@
 <div class = "title">
   <h1>プロジェクト編集</h1>
   <div class = "button">
-    <%= button_to "戻る", :back, method: :get %>
-    <%= button_to "プロジェクトを削除", project_path(@project), data: { confirm: "本当によろしいですか?" }, method: :delete %>
+    <%= link_to "戻る", :back, method: :get %>
+    <%= link_to "プロジェクトを削除", project_path(@project), data: { confirm: "本当によろしいですか?" }, method: :delete %>
   </div>
 </div>
 <hr>

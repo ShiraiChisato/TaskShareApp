@@ -1,8 +1,8 @@
 <div class = "title">
   <h1>プロフィール編集</h1>
     <div class = "button">
-      <%= button_to "戻る", :back, method: :get %>
-      <%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete %>
+      <%= link_to "戻る", :back, method: :get %>
+      <%= link_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete %>
     </div>
 </div>
 <hr>
@@ -11,7 +11,7 @@
 <div class = "set">
     <div class = "side">
       <%= f.label :icon %>
-      <%= f.file_field :icon, type:"file", autofocus: true, onchange: "previewImage()" %>
+      <%= f.file_field :icon, type:"file",  onchange: "previewImage()" %>
       <%= f.hidden_field :icon_cache %>
       <%= image_tag @user.icon.url,  id: 'preview' %>
       <label>
@@ -23,7 +23,7 @@
       <%= f.label :name %>
       <%= f.text_field :name, autocomplete: "name" %>
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email,  autocomplete: "email" %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>

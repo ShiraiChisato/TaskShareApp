@@ -20,8 +20,9 @@
   box-sizing: inherit;
   }
 img{
-  height: 150px;
-  width: 150px;
+  margin: 10px;
+  height: 100px;
+  width: 100px;
 }
 html{
   -webkit-box-sizing: border-box;
@@ -53,7 +54,7 @@ main{
   display: inline;
   flex: 1;
   margin: 0px;
-  padding: 25px 30px;
+  padding: 10px 30px;
 }
 footer{
   clear: both;
@@ -65,6 +66,9 @@ footer{
   font-weight: bold;
   flex-flow: row-reverse;
 }
+footer>*{
+  margin: auto 0px;
+}
 h1,h2,h3{
   font-weight: bold;
   display: flex;
@@ -74,9 +78,9 @@ label{
   margin: 5px;
 }
 a:-webkit-any-link {
-  color: -webkit-link;
+  color: rgb(53, 57, 59);
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -103,24 +107,27 @@ textarea{
 i,em{
   white-space: nowrap;
 }
-table, th, td {
-  line-height: 1.5;
+tbody{
+  padding-bottom: auto;
+  display: inline;
 }
 tr{
   border: 1px solid #3f3f3f;
 }
+th, td {
+  min-width: 10em;
+  padding: 0.1em;
+  font-size: medium;
+  vertical-align: auto;
+}
 th{
-  width: 150px;
-  padding: 10px;
   font-weight: bold;
-  vertical-align: top;
   background: #3f3f3f;
   color: #ffffff;
+  height: 2.5em;
 }
 td{
-  width: 350px;
-  padding: 10px;
-  vertical-align: top;
+  height: 2.5em;
 }
 thead >*{
   font-weight: bold;
@@ -129,7 +136,7 @@ hr{
   width: 100%;
 }
 td:nth-of-type(1),th:nth-of-type(1){
-  width: 3em;
+  width: 10em;
 }
 .title{
   margin: 0px;
@@ -160,8 +167,7 @@ td:nth-of-type(1),th:nth-of-type(1){
   flex-direction: row;
   width: fit-content;
 }
-.button_to>* {
-  min-width: 8em;
+.button>* {
   height: 40px;
   color: #212529;
   margin: 0px 5px;
@@ -177,11 +183,11 @@ td:nth-of-type(1),th:nth-of-type(1){
   background: #cfe2f3ff;
   box-shadow: 0 5px #99AABB;
 }
-.button_to>*:active {
+.button>*:active {
   box-shadow: 0 0 #99AABB;
   top: 5px;
 }
-.button_to>*:hover {
+.button>*:hover {
   box-shadow: 0 2px #99AABB;
   top: 3px;
 }
@@ -212,13 +218,15 @@ td:nth-of-type(1),th:nth-of-type(1){
   overflow-y: visible;
 }
 .content{
-  background-color: aliceblue;
+  background-color: rgba(210, 222, 233, 0.685);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 15em;
   height: 17em;
+  margin: 0.3em 0.5em;
+  padding: 0px;
 }
 .set{
   display: flex;

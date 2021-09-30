@@ -2,27 +2,28 @@
   <h1>プロジェクト検索</h1>
 </div>
 <hr>
-<div class = "field">
-  <div class = "set">
-    <%= search_form_for @q do |f| %>
-      <%= f.label :name_cont %>
-      <%= f.search_field :name_cont %>
-      <%= f.submit %>
-    <% end %>
-  </div>
-  <div class = "field">
+<div class = "ptop">
+  <div class = "p-top__title">
     <div class = "set">
-      <% @projects.each do |project| %>
-        <div class ="field">
+      <%= search_form_for @q do |f| %>
+        <%= f.label :name_cont %>
+        <%= f.search_field :name_cont %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <div class = "p-top__introduce">
+      <div class = "set">
+        <% @projects.each do |project| %>
           <div class = "content">
             <h3><%= project.name %></h3>
             <%= image_tag project.icon.url %>
-            <div class = "button">
-              <%= button_to "参加", join_project_path(project), method: :post %>
-            </div>
+            <%= button_to "参加", join_project_path(project), method: :post %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class = "p-top__paginate">
+      <%= paginate(@projects) %>
     </div>
   </div>
 </div>

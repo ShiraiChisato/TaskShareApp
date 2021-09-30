@@ -47,9 +47,9 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
-    if @project.delete
+    if @project.destroy
       flash[:notice] = "正常に削除されました"
-      redirect_to users_path
+      redirect_to current_user
     else
       flash[:alert] = "削除できませんでした"
       render :show
@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
 
   def index
     @q = Project.ransack(params[:q])
-    @projects = @q.result(distinct: true)
+    @projects = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   def join

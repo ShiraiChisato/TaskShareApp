@@ -5,19 +5,19 @@
   </div>
   <div class = "button">
     <% if @host_member %>
-      <%= button_to "編集する", edit_project_path, method: :get %>
+      <%= link_to "編集する", edit_project_path, method: :get %>
     <% else %>
-      <%= button_to "脱退する", project_members(@project, current_user), method: :destroy %>
+      <%= link_to "脱退する", project_members(@project, current_user), method: :destroy %>
     <% end %>
-    <%= button_to "投稿する", new_post_path, { method: :get, params: { project_id: @project }} %>
+    <%= link_to "投稿する", new_post_path(project_id: @project), method: :get %>
   </div>
 </div>
 <div class="item">
-  <div class = "field">
-    <div class = "field">
-      <h2>投稿</h2>
-    </div>
-    <table>
+  <div class = "ptop">
+    <p class = "p-top__title">
+      投稿
+    </p>
+    <table class='p-top__introduce'>
       <tr>
         <th>name</th>
         <th><%= @project.topic1 %></th>
@@ -49,10 +49,13 @@
         <% end %>
         <% if @project.topic5.present? %>
             <td><%= post.post5 %></td>
-          <% end %>
+        <% end %>
         </tr>
       <% end %>
     </table>
+    <div class = "p-top__paginate">
+      <%= paginate(@posts) %>
+    </div>
   </div>
   <div class = "side">
     <div class = "scroll">

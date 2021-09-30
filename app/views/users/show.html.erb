@@ -2,7 +2,7 @@
   <div class = "title">
     <h2>Your Profile</h2>
     <div class = "button">
-      <%= button_to "プロフィール編集", edit_user_registration_path(current_user), method: :get %>
+      <%= link_to "プロフィール編集", edit_user_registration_path(current_user), method: :get %>
     </div>
   </div>
   <div class = "title">
@@ -17,15 +17,15 @@
   <div class = "title">
     <h2>Your Projects</h2>
     <div class = "button">
-      <%= button_to "プロジェクトに参加", projects_path, method: :get %>
-      <%= button_to "プロジェクトを作成", new_project_path , method: :get %>
+      <%= link_to "プロジェクトに参加", projects_path, method: :get %>
+      <%= link_to "プロジェクトを作成", new_project_path , method: :get %>
     </div>
   </div>
   <div class = "item">
     <% @projects.each do |project| %>
       <div class = "content">
+        <%= link_to image_tag(project.icon.url), project_path(project.id) %>
         <h3><%= link_to project.name, project_path(project.id) %></h3>
-        <%= image_tag project.icon.url %>
       </div>
     <% end %>
   </div>
