@@ -1,3 +1,13 @@
 // Place all the styles related to the associates controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/*ウィンドウ幅が767px以上の場合に適用(PC)*/
+@media screen and (min-width: 767px) {
+}
+/*ウィンドウ幅が767px以下の場合に適用(タブレット)*/
+@media screen and (max-width: 767px) {
+
+}
+/*ウィンドウ幅が最大479pxまでの場合に適用(スマホ)*/
+@media screen and (max-width: 479px) {
+}

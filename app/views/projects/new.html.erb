@@ -1,23 +1,23 @@
 <div class = "title">
   <h1>プロジェクト作成</h1>
-    <div class = "button">
-      <%= link_to "戻る", :back, method: :get %>
-    </div>
+  <div class = "button">
+    <%= link_to "戻る", :back, method: :get %>
+  </div>
 </div>
 <hr>
 <%= form_with model: @project do |form| %>
-  <div class="title">
-    <div class ="field">
+  <div class = "field">
+    <div class="side">
+      <div class ="field">
         <%= form.label :name %>
         <%= form.text_field :name %>
-    </div>
-    <div class="field">
+      </div>
+      <div class="field">
         <%= form.label :note %>
         <%= form.text_area :note %>
+      </div>
     </div>
-  </div>
-  <div class="title">
-    <div class="field">
+    <div class="side">
       <p>what you share?(limit 5 topic)</p>
       <%= form.label :topic1 %>
       <%= form.text_field :topic1 %>
@@ -29,12 +29,9 @@
       <%= form.text_field :topic4 %>
       <%= form.label :topic5 %>
       <%= form.text_field :topic5 %>
+      <div class = "title">
+        <%= form.submit %>
+      </div>
     </div>
-    <div id ="preview">
-
-    </div>
-  </div>
-  <div class = "title">
-    <%= form.submit  %>
   </div>
 <% end %>

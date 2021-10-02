@@ -2,35 +2,32 @@
 <html>
   <head>
     <title>TaskShareApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
-    <div class="title">
       <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
         <!-- ユーザーがログインしていた時の処理 -->
         <h1> Hello! <%= current_user.name %> </h1>
         <div class = "button">
         <% unless current_page?(root_path) %>
-          <%= Lint_to "Home", current_user, method: :get %>
+          <%= link_to "Home", current_user, method: :get %>
         <% end %>
-          <%= Lint_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
         </div>
         <% else %>
           <!-- ユーザーがログインしていなかった時の処理 -->
-        <h1> Welcome to TaskShare! </h1>
+        <h1> TaskShareApp </h1>
         <div class="button">
-          <%= Lint_to "ログイン", new_user_session_path, method: :get %> <!-- ログイン画面に移行する -->
-          <%= Lint_to "新規登録", new_user_registration_path, method: :get %> <!-- 新規登録画面に移行する -->
+          <%= link_to "ログイン", new_user_session_path, method: :get %> <!-- ログイン画面に移行する -->
+          <%= link_to "新規登録", new_user_registration_path, method: :get %> <!-- 新規登録画面に移行する -->
         </div>
       <% end %>
-    </div>
   </header>
   <main>
     <%= yield %>
@@ -40,7 +37,7 @@
     </div>
   </main>
     <footer>
-      <p>©Raisa</p>
+      <h3>©Raisa</h3>
     </footer>
   </body>
 </html>

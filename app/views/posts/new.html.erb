@@ -2,7 +2,7 @@
   <div class="title">
     <h2><%= @project.name %>に投稿することを記入してください</h2>
   </div>
-  <div class="field">
+  <div class="side">
     <h3>what you want to share?</h3>
     <h3><%= @project.topic1 %></h3>
     <%= form.text_field :post1 %>
@@ -25,4 +25,4 @@
   </div>
   <%= form.hidden_field :project_id, value: @project.id %>
   <%= form.submit %>
-  <% end %>
+<% end %>

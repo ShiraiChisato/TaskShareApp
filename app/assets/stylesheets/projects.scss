@@ -1,16 +1,18 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-#name{
-  display: flex;
-  flex-direction: column;
+/*ウィンドウ幅が767px以上の場合に適用(PC)*/
+@media screen and (min-width: 767px) {
 }
-#topic{
-  display: flex;
-  flex-direction: column;
+/*ウィンドウ幅が767px以下の場合に適用(タブレット)*/
+@media screen and (max-width: 767px) {
+
 }
+/*ウィンドウ幅が最大479pxまでの場合に適用(スマホ)*/
+@media screen and (max-width: 479px) {
+}
+
 .p-top {
-  min-width: 960px;
   position:relative;
   &__title {
     text-align: center;
@@ -38,9 +40,6 @@
         float: left;
         margin: 3px;
       }
+    }
   }
-  }
-}
-.set{
-  flex-wrap:wrap ;
 }

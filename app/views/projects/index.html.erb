@@ -4,7 +4,7 @@
 <hr>
 <div class = "ptop">
   <div class = "p-top__title">
-    <div class = "set">
+    <div class = "title">
       <%= search_form_for @q do |f| %>
         <%= f.label :name_cont %>
         <%= f.search_field :name_cont %>
@@ -12,9 +12,9 @@
       <% end %>
     </div>
     <div class = "p-top__introduce">
-      <div class = "set">
+      <div class = "content">
         <% @projects.each do |project| %>
-          <div class = "content">
+          <div>
             <h3><%= project.name %></h3>
             <%= image_tag project.icon.url %>
             <%= button_to "参加", join_project_path(project), method: :post %>
