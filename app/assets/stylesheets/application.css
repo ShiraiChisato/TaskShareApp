@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
 /*ウィンドウ幅が767px以上の場合に適用(PC)*/
 @media screen and (min-width: 767px) {
   img{
@@ -246,7 +247,7 @@ textarea{
 }
 
 /* application.html.erb のアラート用 */
-.notifications p{
+.notifications{
   display: inline-block;
   position: absolute;
   left: 50%;

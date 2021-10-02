@@ -67,3 +67,7 @@ gem 'kaminari'
 
 #search
 gem 'ransack'
+
+#jquery
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1.1'
