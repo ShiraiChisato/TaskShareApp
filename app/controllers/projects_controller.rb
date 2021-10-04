@@ -71,6 +71,7 @@ class ProjectsController < ApplicationController
       redirect_to @project
     end
   end
+  
   def leave
     @project = Project.find(params[:id])
     @project.users.delete(current_user)
@@ -81,7 +82,6 @@ class ProjectsController < ApplicationController
       flash[:alert] = "脱退できませんでした"
       redirect_to @project
     end
-
   end
   private
     def projects_params
