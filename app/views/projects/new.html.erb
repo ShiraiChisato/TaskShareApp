@@ -7,7 +7,7 @@
 <hr>
 <%= form_with model: @project do |form| %>
   <div class = "field">
-    <div class="side">
+    <div class="col">
       <div class ="field">
         <%= form.label :name %>
         <%= form.text_field :name %>
@@ -17,7 +17,7 @@
         <%= form.text_area :note %>
       </div>
     </div>
-    <div class="side">
+    <div class="col">
       <p>what you share?(limit 5 topic)</p>
       <%= form.label :topic1 %>
       <%= form.text_field :topic1 %>

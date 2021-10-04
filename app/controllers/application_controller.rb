@@ -6,4 +6,7 @@ class ApplicationController < ActionController::Base
     def sign_in_required
         redirect_to new_user_session_url unless user_signed_in?
     end
+    def after_sign_out_path_for(resource)
+      root_path # ログアウト後に遷移するpathを設定
+    end
 end

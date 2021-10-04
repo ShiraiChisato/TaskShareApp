@@ -7,8 +7,8 @@
 </div>
 <hr>
 <%= form_with model: @project do |form| %>
-  <div class = "item">
-    <div class="side">
+  <div class = "col">
+    <div class="col">
       <%= form.label :icon %>
       <%= form.file_field :icon, type:"file", onchange:"previewImage()" %>
       <%= form.hidden_field :icon_cache %>
@@ -18,7 +18,7 @@
       画像を削除する
       </label>
     </div>
-    <div class ="side">
+    <div class ="col">
       <div>
         <%= form.label :name %>
         <%= form.text_field :name %>
@@ -32,7 +32,7 @@
   <div class = "field">
   <div>
     <h3>what you share?(limit 5 topic)</h3>
-    <div class = "side">
+    <div class = "col">
       <%= form.label :topic1 %>
       <%= form.text_field :topic1 %>
       <%= form.label :topic2 %>
