@@ -1,8 +1,11 @@
 <%= form_with model: @post do |form| %>
   <div class="title">
     <h2><%= @project.name %>に投稿することを記入してください</h2>
+    <div class = "button">
+      <%= link_to "戻る", :back, method: :get %>
+    </div>
   </div>
-  <div class="side">
+  <div class="col">
     <h3>what you want to share?</h3>
     <h3><%= @project.topic1 %></h3>
     <%= form.text_field :post1 %>

@@ -5,18 +5,18 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="side">
+  <div class="col">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    <div class="item">
+    <div class="row">
       <%= f.label :password %>
       <%= link_to "パスワードを忘れた場合", new_user_password_path %>
     </div>
-    <div class="item">
+    <div class="col">
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
   </div>
-  <div class = "field">
+  <div class = "rowfield">
     <div id = "check">
       <% if devise_mapping.rememberable? %>
         <%= f.check_box :remember_me %>
@@ -24,7 +24,7 @@
       <% end %>
     </div>
   </div>
-  <div class ="title">
-    <%= f.submit "Log in" %>
+  <div class ="actions">
+    <%= f.submit "ログイン" %>
   </div>
 <% end %>

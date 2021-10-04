@@ -8,8 +8,8 @@
 <hr>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-<div class = "field">
-    <div class = "side">
+<div class = "rowfield">
+    <div class = "col">
       <%= f.label :icon %>
       <%= f.file_field :icon, type:"file",  onchange: "previewImage()" %>
       <%= f.hidden_field :icon_cache %>
@@ -19,7 +19,7 @@
       画像を削除する
     </label>
     </div>
-    <div class="item">
+    <div class="col">
       <%= f.label :name %>
       <%= f.text_field :name, autocomplete: "name" %>
       <%= f.label :email %>
@@ -38,7 +38,7 @@
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
   </div>
-  <div class = "title">
+  <div class = "actions">
     <%= f.submit "更新" %>
   </div>
 <% end %>
