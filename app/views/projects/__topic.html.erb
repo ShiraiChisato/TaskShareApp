@@ -1,27 +1,27 @@
   <div class="title">
-    <div class="rowfield">
+    <div class="col">
       <%= f.label :topic1 %>
       <%= f.text_field :topic1 %>
     </div>
-    <div class="rowfield">
+    <div class="col">
       <% if @project.topic2? %>
         <%= f.label :topic2 %>
         <%= f.text_field :topic2 %>
       <% end %>
     </div>
-    <div class="rowfield">
+    <div class="col">
       <% if @project.topic3? %>
         <%= f.label :topic3 %>
         <%= f.text_field :topic3 %>
       <% end %>
     </div>
-    <div class="rowfield">
+    <div class="col">
       <% if @project.topic4? %>
         <%= f.label :topic4 %>
         <%= f.text_field :topic4 %>
       <% end %>
     </div>
-    <div class="rowfield">
+    <div class="col">
       <% if @project.topic5? %>
         <%= f.label :topic5 %>
         <%= f.text_field :topic5 %>

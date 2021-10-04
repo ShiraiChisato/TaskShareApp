@@ -6,5 +6,6 @@ class Project < ApplicationRecord
   has_many :users, through: :associates
   has_many :posts, dependent: :destroy
 
+  validates :name, :topic1, presence: true
   mount_uploader :icon, ImageUploader
 end

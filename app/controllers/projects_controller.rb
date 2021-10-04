@@ -63,8 +63,6 @@ class ProjectsController < ApplicationController
 
   def join
     @project = Project.find(params[:id])
-    puts "----------------------------------"
-    puts params[:id]
     if @project.users.pluck(:id).include?(current_user.id)
       flash[:notice] = "既に加入しています"
       redirect_to @project
@@ -73,7 +71,18 @@ class ProjectsController < ApplicationController
       redirect_to @project
     end
   end
+  def leave
+    @project = Project.find(params[:id])
+    @project.users.delete(current_user)
+    if @project.users.pluck(:id).exclude?(current_user.id)
+      flash[:notice] = "脱退処理が完了しました"
+      redirect_to current_user
+    else
+      flash[:alert] = "脱退できませんでした"
+      redirect_to @project
+    end
 
+  end
   private
     def projects_params
       params.require(:project).permit(:name, :icon, :note, :topic1, :topic2, :topic3, :topic4, :topic5, :remove_icon)

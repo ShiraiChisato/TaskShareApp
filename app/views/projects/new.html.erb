@@ -6,13 +6,13 @@
 </div>
 <hr>
 <%= form_with model: @project do |form| %>
-  <div class = "rowfield">
+  <div class = "col">
     <div class="col">
-      <div class ="rowfield">
+      <div class ="col">
         <%= form.label :name %>
         <%= form.text_field :name %>
       </div>
-      <div class="rowfield">
+      <div class="col">
         <%= form.label :note %>
         <%= form.text_area :note %>
       </div>

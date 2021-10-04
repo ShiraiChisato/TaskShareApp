@@ -1,9 +1,9 @@
 <!-- 未実装のファイル
 <%= form_for([:admin, :survey, @free_choice_matter]) do |f| %>
-  <div class="rowfield">
+  <div class="col">
     <% = f.label :subject %>
     <%= f.text_field :subject, class: 'form-control'  %>
-  <div class="rowfield">
+  <div class="col">
     <div class="checkbox">
       <% label %>
       <%= f.check_box :other_selected  %>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :projects do
     member do
       post :join
+      delete :leave
     end
     resources :members
   end

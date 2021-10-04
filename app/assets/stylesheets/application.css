@@ -14,7 +14,7 @@
  *= require_self
  */
 /*ウィンドウ幅が767px以上の場合に適用(PC)*/
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 768px) {
   img{
     height: 8em;
     width: 8em;
@@ -37,7 +37,26 @@
 
 }
 /*ウィンドウ幅が767px以下の場合に適用(タブレット)*/
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
+  img{
+    height: 8em;
+    width: 8em;
+  }
+  .rowitem{
+    flex-direction: row;
+  }
+  .rowitem>*{
+    flex-direction: column;
+    justify-content: center;
+    height: 15em;
+    width: 15em;
+  }
+  .title,.field{
+    flex-direction: row;
+  }
+  .rowfield{
+    flex-direction: column;
+  }
 
 }
 
@@ -47,7 +66,7 @@
     display: none;
   }
   .title,.field{
-    flex-direction:column;
+    flex-direction: column;
   }
   .rowitem{
     flex-direction: column;
@@ -287,9 +306,9 @@ textarea{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 0px;
+  top: 5.5em;
   z-index: 100;
-  margin: 10px;
+  margin: 0em;
 }
 
 /* ボタン装飾 */
