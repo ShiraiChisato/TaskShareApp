@@ -14,3 +14,8 @@
 /*ウィンドウ幅が最大479pxまでの場合に適用(スマホ)*/
 @media screen and (max-width: 479px) {
 }
+.scroll>.row{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}

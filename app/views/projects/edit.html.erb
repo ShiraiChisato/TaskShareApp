@@ -7,48 +7,60 @@
 </div>
 <hr>
 <%= form_with model: @project do |form| %>
-  <div class = "col">
-    <div class="col">
-      <%= form.label :icon %>
-      <%= form.file_field :icon, type:"file", onchange:"previewImage()" %>
-      <%= form.hidden_field :icon_cache %>
-      <%= image_tag @project.icon.url,  id: 'preview' %>
-      <label>
-      <%= form.check_box :remove_icon %>
-      画像を削除する
-      </label>
-    </div>
-    <div class ="col">
-      <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-      </div>
-      <div>
-        <%= form.label :note %>
-        <%= form.text_area :note %>
-      </div>
-    </div>
-  </div>
-  <div class = "col">
-  <div>
-    <h3>what you share?(limit 5 topic)</h3>
+  <div class = "rowfield">
     <div class = "col">
-      <%= form.label :topic1 %>
-      <%= form.text_field :topic1 %>
-      <%= form.label :topic2 %>
-      <%= form.text_field :topic2 %>
-      <%= form.label :topic3 %>
-      <%= form.text_field :topic3 %>
-      <%= form.label :topic4 %>
-      <%= form.text_field :topic4 %>
-      <%= form.label :topic5 %>
-      <%= form.text_field :topic5 %>
+      <div class = "rowfield">
+        <div class="col">
+          <%= form.label :icon %>
+          <%= form.file_field :icon, type:"file", onchange:"previewImage()" %>
+          <%= form.hidden_field :icon_cache %>
+          <%= image_tag @project.icon.url,  id: 'preview' %>
+          <label>
+            <%= form.check_box :remove_icon %>
+            画像を削除する
+          </label>
+        </div>
+        <div class ="col">
+          <div>
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+          </div>
+          <div>
+            <%= form.label :note %>
+            <%= form.text_area :note %>
+          </div>
+        </div>
+      </div>
+      <div class = "col">
+        <h3>what you share?(limit 5 topic)</h3>
+        <div class = "col">
+          <%= form.label :topic1 %>
+          <%= form.text_field :topic1 %>
+          <%= form.label :topic2 %>
+          <%= form.text_field :topic2 %>
+          <%= form.label :topic3 %>
+          <%= form.text_field :topic3 %>
+          <%= form.label :topic4 %>
+          <%= form.text_field :topic4 %>
+          <%= form.label :topic5 %>
+          <%= form.text_field :topic5 %>
+        </div>
+      </div>
     </div>
-  </div>
-
-  </div>
-  <div class = "title">
-    <%= form.submit %>
+    <div class = "col">
+      <%= form.label :host_users, "追加する管理者" %>
+      <div class = "scroll">
+        <div class = "col">
+        <% @not_host_member.each do |user| %>
+          <%= form.check_box :host_users,  {multiple: true}, user.id, nil %>
+          <%= user.name %>
+        <% end %>
+        </div>
+      </div>
+      <div class = "link">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>
 <%= javascript_pack_tag "user/common.js" %>

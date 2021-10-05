@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @host_member = @project.users.where(associates: {host: true})
+    @not_host_member = @project.users.where(associates: {host: false})
   end
 
   def create
@@ -33,6 +35,8 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    host = params[:project][:host_users]
+    new_host(host)
     if @project.update(projects_params)
       # update メソッドが正しく実行できたとき詳細ページに戻る
       redirect_to @project
@@ -71,7 +75,7 @@ class ProjectsController < ApplicationController
       redirect_to @project
     end
   end
-  
+
   def leave
     @project = Project.find(params[:id])
     @project.users.delete(current_user)
@@ -86,6 +90,12 @@ class ProjectsController < ApplicationController
   private
     def projects_params
       params.require(:project).permit(:name, :icon, :note, :topic1, :topic2, :topic3, :topic4, :topic5, :remove_icon)
+    end
+    def new_host(host_users)
+      puts(host_users)
+      host_users.each do |host|
+        Associate.where(user: host,project: @project).update(host: :true)
+      end
     end
     def set_host
       Associate.where(user: current_user, project: @project).update(host: true)
