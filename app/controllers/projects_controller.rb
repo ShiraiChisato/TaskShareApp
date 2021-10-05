@@ -92,7 +92,6 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:name, :icon, :note, :topic1, :topic2, :topic3, :topic4, :topic5, :remove_icon)
     end
     def new_host(host_users)
-      puts(host_users)
       host_users.each do |host|
         Associate.where(user: host,project: @project).update(host: :true)
       end

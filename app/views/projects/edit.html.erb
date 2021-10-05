@@ -52,8 +52,10 @@
       <div class = "scroll">
         <div class = "col">
         <% @not_host_member.each do |user| %>
-          <%= form.check_box :host_users,  {multiple: true}, user.id, nil %>
-          <%= user.name %>
+          <div class = "row">
+            <%= form.check_box :host_users,  {multiple: true}, user.id, nil %>
+            <%= user.name %>
+          </div>
         <% end %>
         </div>
       </div>
