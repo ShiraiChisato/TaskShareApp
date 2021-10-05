@@ -48,15 +48,32 @@
       </div>
     </div>
     <div class = "col">
-      <%= form.label :host_users, "追加する管理者" %>
-      <div class = "scroll">
+      <div class = "rowfield">
         <div class = "col">
-        <% @not_host_member.each do |user| %>
-          <div class = "row">
-            <%= form.check_box :host_users,  {multiple: true}, user.id, nil %>
-            <%= user.name %>
+          <h3>追加する管理者</h3>
+          <div class = "scroll">
+            <div class = "col">
+            <% @not_host_member.each do |user| %>
+              <div class = "row">
+                <%= form.check_box :host_users,  {multiple: true}, user.id, nil %>
+                <%= user.name %>
+              </div>
+            <% end %>
+            </div>
           </div>
-        <% end %>
+        </div>
+        <div class = "col">
+          <h3>削除する管理者</h3>
+          <div class = "scroll">
+            <div class = "col">
+              <% @host_member.each do |user| %>
+                <div class = "row">
+                  <%= form.check_box :non_host,  {multiple: true}, user.id, nil %>
+                  <%= user.name %>
+                </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
       <div class = "link">

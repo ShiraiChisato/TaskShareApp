@@ -350,7 +350,7 @@ textarea{
 }
 /* リンク装飾 */
 .link,.actions{
-  float: right;
+  position: relative;
 }
 .link>*, .actions>*{
   font-size: 15px;

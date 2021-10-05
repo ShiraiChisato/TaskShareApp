@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    @host_member = @project.users.where(associates: {host: true})
+    @host_member = @project.users.where(associates: {host: true}).where.not(associates: {user: current_user.id})
     @not_host_member = @project.users.where(associates: {host: false})
   end
 
@@ -36,7 +36,13 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     host = params[:project][:host_users]
-    new_host(host)
+    if host.present?
+      new_host(host)
+    end
+    non_host = params[:project][:non_host]
+    if non_host.present?
+      delete_host(non_host)
+    end
     if @project.update(projects_params)
       # update メソッドが正しく実行できたとき詳細ページに戻る
       redirect_to @project
@@ -94,6 +100,11 @@ class ProjectsController < ApplicationController
     def new_host(host_users)
       host_users.each do |host|
         Associate.where(user: host,project: @project).update(host: :true)
+      end
+    end
+    def delete_host(non_host)
+      non_host.each do |host|
+        Associate.where(user: host,project: @project).update(host: :false)
       end
     end
     def set_host
