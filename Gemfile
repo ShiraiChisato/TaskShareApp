@@ -57,6 +57,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #add device
 gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 #add icon set
 gem 'carrierwave'
@@ -67,3 +69,6 @@ gem 'kaminari'
 
 #search
 gem 'ransack'
+
+#material icon for google
+gem 'material_icons'

@@ -7,5 +7,6 @@ class Project < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   validates :name, :topic1, presence: true
+  validates :name, {length: {maximum: 15}}
   mount_uploader :icon, ImageUploader
 end

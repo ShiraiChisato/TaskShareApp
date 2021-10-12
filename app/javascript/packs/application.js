@@ -11,4 +11,5 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+require("./user/color.js")
 require("./user/common.js")

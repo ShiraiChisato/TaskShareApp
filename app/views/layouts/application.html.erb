@@ -11,8 +11,11 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
   </head>
-
   <body>
     <header>
       <% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
@@ -20,16 +23,16 @@
         <h1> Hello! <%= current_user.name %> </h1>
         <div class = "button">
         <% unless current_page?(root_path) %>
-          <%= link_to "Home", current_user, method: :get %>
+          <%= link_to current_user, method: :get do %><i class="material-icons">home</i>Home<% end %>
         <% end %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> <!-- ログアウトをする -->
+          <%= link_to destroy_user_session_path, method: :delete do %><i class = "material-icons">logout</i>Logout<% end %> <!-- ログアウトをする -->
         </div>
         <% else %>
           <!-- ユーザーがログインしていなかった時の処理 -->
         <h1> TaskShareApp </h1>
         <div class="button">
-          <%= link_to "ログイン", new_user_session_path, method: :get %> <!-- ログイン画面に移行する -->
-          <%= link_to "新規登録", new_user_registration_path, method: :get %> <!-- 新規登録画面に移行する -->
+          <%= link_to new_user_session_path, method: :get do %><i class = "material-icons">login</i>Login<% end %> <!-- ログイン画面に移行する -->
+          <%= link_to new_user_registration_path, method: :get do %> <i class = "material-icons">person_add</i>New <% end %> <!-- 新規登録画面に移行する -->
         </div>
       <% end %>
   </header>

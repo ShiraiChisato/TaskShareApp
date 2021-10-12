@@ -1,35 +1,31 @@
 <div class = "title">
   <h1>プロジェクト編集</h1>
   <div class = "button">
-    <%= link_to "戻る", :back, method: :get %>
-    <%= link_to "プロジェクトを削除", project_path(@project), data: { confirm: "本当によろしいですか?" }, method: :delete %>
+      <%= link_to :back, method: :get do %> <i class = "material-icons">arrow_back</i> Back<% end %>
+    <%= link_to project_path(@project), data: { confirm: "本当によろしいですか?" }, method: :delete do %> <i class = "material-icons">delete</i>Delete <% end %>
   </div>
 </div>
 <hr>
 <%= form_with model: @project do |form| %>
   <div class = "rowfield">
     <div class = "col">
-      <div class = "rowfield">
-        <div class="col">
-          <%= form.label :icon %>
-          <%= form.file_field :icon, type:"file", onchange:"previewImage()" %>
-          <%= form.hidden_field :icon_cache %>
-          <%= image_tag @project.icon.url,  id: 'preview' %>
-          <label>
-            <%= form.check_box :remove_icon %>
-            画像を削除する
-          </label>
-        </div>
-        <div class ="col">
-          <div>
-            <%= form.label :name %>
-            <%= form.text_field :name %>
-          </div>
-          <div>
-            <%= form.label :note %>
-            <%= form.text_area :note %>
-          </div>
-        </div>
+      <div class="col">
+        <%= form.label :icon %>
+        <%= form.file_field :icon, type:"file", onchange:"previewImage()" %>
+        <%= form.hidden_field :icon_cache %>
+        <%= image_tag @project.icon.url,  id: 'preview' %>
+        <label>
+          <%= form.check_box :remove_icon %>
+          画像を削除する
+        </label>
+      </div>
+      <div class ="col">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+      <div class ="col">
+        <%= form.label :note %>
+        <%= form.text_area :note %>
       </div>
       <div class = "col">
         <h3>what you share?(limit 5 topic)</h3>

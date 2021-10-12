@@ -5,15 +5,15 @@
   </div>
   <div class = "button">
     <% if @host_member.include?(current_user)  %>
-      <%= link_to "編集する", edit_project_path, method: :get %>
+      <%= link_to edit_project_path, method: :get do %> <i class = "material-icons">edit</i>Edit <% end %>
     <% else %>
-      <%= link_to "脱退する", leave_project_path(@project), method: :delete %>
+      <%= link_to leave_project_path(@project), method: :delete do %> <i class = "material-icons">person_off</i>Leave <% end %>
     <% end %>
-    <%= link_to "投稿する", new_post_path(project_id: @project), method: :get %>
+    <%= link_to new_post_path(project_id: @project), method: :get do %> <i class = "material-icons">post_add</i>Post <% end %>
   </div>
 </div>
 <hr>
-<div class="colfield">
+<div class="rowfield">
   <div class = "col">
     <div class = "scroll">
       <h3>管理者</h3>

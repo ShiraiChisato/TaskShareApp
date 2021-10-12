@@ -1,7 +1,7 @@
 <div class="title">
   <h2><%= @project.name %>に投稿することを記入してください</h2>
   <div class = "button">
-    <%= link_to "戻る", :back, method: :get %>
+    <%= link_to :back, method: :get do %> <i class = "material-icons">arrow_back</i>back <% end %>
   </div>
 </div>
 <hr>

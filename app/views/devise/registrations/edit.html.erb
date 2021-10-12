@@ -1,8 +1,8 @@
 <div class = "title">
   <h1>プロフィール編集</h1>
     <div class = "button">
-      <%= link_to "戻る", :back, method: :get %>
-      <%= link_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete %>
+      <%= link_to :back, method: :get do %> <i class = "material-icons">arrow_back</i> Back<% end %>
+      <%= link_to registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete do %> <i class = "material-icons ">person_remove</i>Delete <% end %>
     </div>
 </div>
 <hr>
@@ -38,8 +38,17 @@
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
   </div>
+  <div class = "col">
+    <div>
+      <%= f.label :color, "ダークモード" %>
+      <div class = "button">
+        <%= f.check_box :color,id:"btn-mode" %>
+      </div>
+    </div>
+  </div>
   <div class = "actions">
     <%= f.submit "更新" %>
   </div>
 <% end %>
 <%= javascript_pack_tag "user/common.js" %>
+<%= javascript_pack_tag "user/color.js" %>
