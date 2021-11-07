@@ -390,7 +390,7 @@ textarea{
   overflow-y: scroll;
   border: var(--color-theme) solid 1px;
   width: 15em;
-  max-height: 40em;
+  max-height: 35em;
 }
 .scroll>*{
   margin: 0.5em;
