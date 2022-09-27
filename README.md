@@ -1,5 +1,6 @@
 # README
 [![Ruby Gem](https://github.com/raisa0726/TaskShareApp/actions/workflows/gem-push.yml/badge.svg)](https://github.com/raisa0726/TaskShareApp/actions/workflows/gem-push.yml)
+[![Ruby on Rails CI](https://github.com/raisa0726/TaskShareApp/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/raisa0726/TaskShareApp/actions/workflows/rubyonrails.yml)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
