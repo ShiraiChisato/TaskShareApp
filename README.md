@@ -23,3 +23,13 @@ Things you may want to cover:
 
 * ...
 # TaskShareApp
+
+## build
+
+```bash
+cd TaskShareApp
+rails db:create
+rails db:migrate
+rails webpacker:install
+rails s
+```
