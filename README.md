@@ -30,8 +30,10 @@ Things you may want to cover:
 
 ```bash
 cd TaskShareApp
-rails db:create
-rails db:migrate
+# 別のアプリの方でpathが通っている場合、そちらのbundleになるため注意
+bundle install --path vendor/bundle
+sudo service mysql start
 rails webpacker:install
-rails s
+rails db:create 
+rails db:migrate
 ```
